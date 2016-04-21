@@ -44,6 +44,7 @@ $result = $db->query($query);
 echo var_dump($result);
 echo 'aqui<br><br>';
 
+echo "<table>";
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     echo "<tr>";
     echo "<td>" . $row["employee_id"] . "</td>";
@@ -52,6 +53,7 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     echo "<td>" . htmlspecialchars($row["title"]) . "</td>";
     echo "</tr>";
 }
+echo "</table>";
 $result->closeCursor();
 
 //$app->register(new Herrera\Pdo\PdoServiceProvider(), $zica);
