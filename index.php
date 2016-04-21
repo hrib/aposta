@@ -1,10 +1,6 @@
 <?php
 
-$zica = array(
-                'pdo.dsn' => 'pgsql:dbname='.ltrim($dbopts["path"],'/').';host='.$dbopts["host"] . ';port=' . $dbopts["port"],
-                'pdo.username' => $dbopts["user"],
-                'pdo.password' => $dbopts["pass"]
-               )
+$zica = array('pdo.dsn' => 'pgsql:dbname='.ltrim($dbopts["path"],'/').';host='.$dbopts["host"] . ';port=' . $dbopts["port"], 'pdo.username' => $dbopts["user"], 'pdo.password' => $dbopts["pass"]);
 
 echo var_dump($zica);
 
