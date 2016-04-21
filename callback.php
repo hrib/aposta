@@ -47,8 +47,8 @@ $longLivedAccessToken = $oAuth2Client->getLongLivedAccessToken($_SESSION['facebo
 $fb->setDefaultAccessToken($longLivedAccessToken);
 
 try {
-  $response = $fb->get('/me?fields=email');
-  $userNode = $response->getGraphUser();
+  $response = $fb->get('/me?fields=name,email');
+  //$userNode = $response->getGraphUser();
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   // When Graph returns an error
   echo 'Graph returned an error: ' . $e->getMessage();
@@ -59,12 +59,16 @@ try {
   exit;
 }
 
-echo 'Logged in as ' . $userNode->getName();
+//echo 'Logged in as ' . $userNode->getName();
 
 $graphObject = $response->getGraphObject();
-$email = $graphObject->getProperty('email');  // This is not getting any thing
-
-echo $email; // Empty
+$name = $graphObject->getProperty('name');
+$email = $graphObject->getProperty('email');
+echo '<br>';
+echo $name;
+echo '<br>';
+echo $email; 
+echo '<br>';
 
 }
 
