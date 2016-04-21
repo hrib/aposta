@@ -16,7 +16,7 @@ echo '<br>3<br>';
 
 
 try {
-  $response = $fb->get('/mblivre?fields=posts{message}');
+  $response = $fb->get('/mblivre?fields=feed');
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   echo 'Graph returned an error: ' . $e->getMessage();
   exit;
@@ -29,8 +29,8 @@ $graphObject = $response->getGraphObject();
 var_dump($graphObject );
 
 $i = 0;
-foreach($graphObject['message'] as $xxx) {
-    echo $xxx['type'] . "<br />";
+foreach($graphObject['data'] as $xxx) {
+    echo $xxx['message'] . "<br />";
     $i++; // add 1 to the counter
     if ($i == 10) {
         break;
