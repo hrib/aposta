@@ -25,7 +25,7 @@ try {
   exit;
 }
 
-$graphObject = $response->getGraphObject()->AsArray();
+$graphObject = $response->getGraphObject();
 echo '<br>';
 //var_dump($graphObject );
 echo '<br>';
