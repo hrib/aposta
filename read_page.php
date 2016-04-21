@@ -37,12 +37,13 @@ echo '<br>';
 print_r($get_data, 1 );
 echo '<br>';
 
-echo var_dump($get_data[0][0]);
+echo var_dump($get_data[0][0][0]);
 echo '<br>';
 echo $get_data['feed']['data']['message'];
 echo '<br>';
 echo var_dump($get_data['feed']['data']['message']);
 
+print_r($graphObject->getProperty('message'));
 
 $i = 0;
 foreach ($graphObject['data'] as $key => $value){
