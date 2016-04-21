@@ -2,7 +2,7 @@
 session_start();
 
 echo 'oi';
-//require_once 'src/Facebook/autoload.php';
+require_once 'src/Facebook/autoload.php';
 
 $fb = new Facebook\Facebook([
   'app_id' => '1011974285544429',
