@@ -30,8 +30,21 @@ $graphNode = $response->getGraphNode();
 
 // Iteration
 foreach ($graphNode as $key => $value) {
-  echo $key;
+  echo $key . '<br>';
   echo var_dump($value);
+  echo '<br>';
+  echo '<br>';
+}
+
+
+foreach ($graphNode[] as $key => $value) {
+  echo $key . '<br>';
+  echo var_dump($value);
+  foreach ($value as $key2 => $value2) {
+    echo $key2 . '<br>';
+    echo var_dump($value2) . '<br>';
+  }
+  echo '<br>';
   echo '<br>';
 }
 
