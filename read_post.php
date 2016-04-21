@@ -20,11 +20,10 @@ echo '<br>4<br>';
 $graphNode = $response->getGraphNode();
 //echo $graphNode['feed'][0]['message'] . '<br><br>';
 foreach ($graphNode['comments'] as $key => $value) {
-    echo '<br>' . $key . ':' . $key . '>>>' . $value['message'] . '<br>';
-    //echo '<br>' . $key . ':' . $key2 . '>>>' . $value2['created_time'] . '<br>';
-    echo '<br>' . $key . ':' . $key . '>>>' . $value['from']['name'] . '<br>';
-    echo '<br>' . $key . ':' . $key . '>>>' . $value['from']['id'] . '<br>';
-    echo '___________________________________________________';
+    //echo '<br>' . $key .  '>>>' . $value['message'] . '<br>';
+    //echo '<br>' . $key .  '>>>' . $value['created_time'] . '<br>';
+    echo $key .  '>>>' . $value['from']['name'] . '<br>';
+    //echo '<br>' . $key .  '>>>' . $value['from']['id'] . '<br>';
 }
 
 
