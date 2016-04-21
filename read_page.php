@@ -25,12 +25,15 @@ try {
   exit;
 }
 
-$graphObject = $response->getGraphObject();
+$graphObject = $response->getGraphObject()->AsArray();
 //var_dump($graphObject );
 
+
+
 $i = 0;
-foreach($graphObject['data'] as $xxx) {
-    echo $xxx['message'] . "<br>";
+foreach ($graphObject['data'] as $key => $value){
+    echo $value->message;
+    echo '<br>';
     $i++; // add 1 to the counter
     if ($i == 10) {
         break;
