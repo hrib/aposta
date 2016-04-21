@@ -26,34 +26,22 @@ try {
 }
 
 $graphObject = $response->getGraphObject();
-echo '<br>';
-//var_dump($graphObject );
-echo '<br>';
-//print_r( $graphObject, 1 );
-echo '<br>';
-$get_data = $response->getDecodedBody();
-var_dump($get_data);
-echo '<br>';
-print_r($get_data, 1 );
-echo '<br>';
 
-echo var_dump($get_data[0][0][0]);
-echo '<br>';
-echo $get_data['feed']['data']['message'];
-echo '<br>';
-echo var_dump($get_data['feed']['data']['message']);
 
-print_r($graphObject->getProperty('message'));
-
-$i = 0;
-foreach ($graphObject['data'] as $key => $value){
-    echo $value->message;
-    echo '<br>';
-    $i++; // add 1 to the counter
-    if ($i == 10) {
-        break;
-    }
-}
+	$posts = $fb->api('/mblivre/posts?limit=50');
+	echo "<pre>"; print_r($posts); echo "</pre>";
+	$i=0;
+	foreach ($posts['data'] as $post){
+		$time_ar = explode("T",$post['updated_time']);
+		echo "<h3>{$time_ar[0]}</h3>";
+		if(isset($post['message']) && $post['message']) echo "<p>".make_links($post['message'])."</p>";
+		if(isset($post['story']) && $post['story']) echo "<p>".make_links($post['story'])."</p>";
+		
+		if($i !== count($posts['data'])-1){
+			echo '<hr>';
+		}
+		$i++;
+	}
 
 
 
