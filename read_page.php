@@ -25,23 +25,10 @@ try {
   exit;
 }
 
-$graphObject = $response->getGraphObject();
+$graphObject = $response->getGraphObject()->getDecodedBody;
+echo var_dump($graphObject);
 
 
-	$posts = $fb->api('/mblivre/posts?limit=50');
-	echo "<pre>"; print_r($posts); echo "</pre>";
-	$i=0;
-	foreach ($posts['data'] as $post){
-		$time_ar = explode("T",$post['updated_time']);
-		echo "<h3>{$time_ar[0]}</h3>";
-		if(isset($post['message']) && $post['message']) echo "<p>".make_links($post['message'])."</p>";
-		if(isset($post['story']) && $post['story']) echo "<p>".make_links($post['story'])."</p>";
-		
-		if($i !== count($posts['data'])-1){
-			echo '<hr>';
-		}
-		$i++;
-	}
 
 
 
