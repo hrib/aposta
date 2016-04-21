@@ -1,5 +1,6 @@
 mbstring nao habilitado no HEROKU, entao substitui por my_mb_substr
 
+src/Facebook/PseudoRandomString/PseudoRandomStringGeneratorTrait.php
 trait PseudoRandomStringGeneratorTrait
 {
 
@@ -19,3 +20,12 @@ function my_mb_substr($string, $offset, $length)
   $slice = array_slice($arr, $offset + 1, $length);
   return implode("", $slice);
 }
+
+ aposta/src/Facebook/HttpClients/FacebookCurlHttpClient.php
+
+
+        //$rawHeaders = mb_substr($this->rawResponse, 0, $headerSize);
+        //$rawBody = mb_substr($this->rawResponse, $headerSize);
+
+        $rawHeaders = my_mb_substr($this->rawResponse, 0, $headerSize);
+        $rawBody = my_mb_substr($this->rawResponse, $headerSize);
