@@ -26,10 +26,10 @@ try {
 }
 
 $graphObject = $response->getGraphObject();
-var_dump($graphObject );
+//var_dump($graphObject );
 
 $i = 0;
-foreach($graphObject['data'] as $xxx) {
+foreach($response['data'] as $xxx) {
     echo $xxx['message'] . "<br />";
     $i++; // add 1 to the counter
     if ($i == 10) {
