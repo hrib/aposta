@@ -29,9 +29,13 @@ $graphObject = $response->getGraphObject()->AsArray();
 echo '<br>';
 //var_dump($graphObject );
 echo '<br>';
-print_r( $graphObject, 1 );
+//print_r( $graphObject, 1 );
 echo '<br>';
-
+$get_data = $response->getDecodedBody();
+var_dump($get_data);
+echo '<br>';
+print_r($get_data, 1 );
+echo '<br>';
 
 $i = 0;
 foreach ($graphObject['data'] as $key => $value){
