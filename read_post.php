@@ -19,12 +19,11 @@ $response = $fb->get('204223673035117_364562457001237?fields=comments');
 echo '<br>4<br>';    
 $graphNode = $response->getGraphNode();
 //echo $graphNode['feed'][0]['message'] . '<br><br>';
-foreach ($graphNode['posts'] as $key => $value) {
-  foreach ($value['comments'] as $key2 => $value2) {
-    echo '<br>' . $key . ':' . $key2 . '>>>' . $value2['message'] . '<br>';
+foreach ($graphNode['comments'] as $key => $value) {
+    echo '<br>' . $key . ':' . $key . '>>>' . $value['message'] . '<br>';
     //echo '<br>' . $key . ':' . $key2 . '>>>' . $value2['created_time'] . '<br>';
-    echo '<br>' . $key . ':' . $key2 . '>>>' . $value2['from']['name'] . '<br>';
-    echo '<br>' . $key . ':' . $key2 . '>>>' . $value2['from']['id'] . '<br>';
+    echo '<br>' . $key . ':' . $key . '>>>' . $value['from']['name'] . '<br>';
+    echo '<br>' . $key . ':' . $key . '>>>' . $value['from']['id'] . '<br>';
     echo '___________________________________________________';
   }
 }
