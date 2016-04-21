@@ -28,9 +28,11 @@ echo '<br>5<br>';
 
 $graphNode = $response->getGraphNode();
 
-echo $graphNode['feed'][0]['message]' . '<br><br>';
-echo $graphNode[0][0]['message]' . '<br><br>';
+echo $graphNode['feed'][0]['message'] . '<br><br>';
+echo $graphNode[0][0]['message'] . '<br><br>';
 echo '<br>fim<br>';
+
+
 foreach ($graphNode as $key => $value) {
   echo $key . '<br>';
   //echo var_dump($value);
