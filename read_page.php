@@ -50,7 +50,7 @@ $graphNode = $response->getGraphNode();
 foreach ($graphNode['posts'] as $key => $value) {
   foreach ($value['comments'] as $key2 => $value2) {
     echo '<br>' . $key . ':' . $key2 . '>>>' . $value2['message'] . '<br>';
-    echo '<br>' . $key . ':' . $key2 . '>>>' . $value2['created_time'] . '<br>';
+    //echo '<br>' . $key . ':' . $key2 . '>>>' . $value2['created_time'] . '<br>';
     echo '<br>' . $key . ':' . $key2 . '>>>' . $value2['from']['name'] . '<br>';
     echo '<br>' . $key . ':' . $key2 . '>>>' . $value2['from']['id'] . '<br>';
     echo '___________________________________________________';
