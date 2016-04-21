@@ -166,11 +166,11 @@ class FacebookCurlHttpClient implements FacebookHttpClientInterface
     {
         $headerSize = $this->getHeaderSize();
 
-        //$rawHeaders = mb_substr($this->rawResponse, 0, $headerSize);
-        //$rawBody = mb_substr($this->rawResponse, $headerSize);
+        $rawHeaders = mb_substr($this->rawResponse, 0, $headerSize);
+        $rawBody = mb_substr($this->rawResponse, $headerSize);
 
-        $rawHeaders = my_mb_substr($this->rawResponse, 0, $headerSize);
-        $rawBody = my_mb_substr($this->rawResponse, $headerSize);
+        //$rawHeaders = my_mb_substr($this->rawResponse, 0, $headerSize);
+        //$rawBody = my_mb_substr($this->rawResponse, $headerSize);
 
 
 
@@ -216,9 +216,9 @@ class FacebookCurlHttpClient implements FacebookHttpClientInterface
     }
 }
 
-function my_mb_substr($string, $offset, $length)
-{
-  $arr = preg_split("//u", $string);
-  $slice = array_slice($arr, $offset + 1, $length);
-  return implode("", $slice);
-}
+//function my_mb_substr($string, $offset, $length)
+//{
+//  $arr = preg_split("//u", $string);
+//  $slice = array_slice($arr, $offset + 1, $length);
+//  return implode("", $slice);
+//}
