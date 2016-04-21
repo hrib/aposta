@@ -37,7 +37,7 @@ foreach ($graphNode as $key => $value) {
 }
 
 
-foreach ($graphNode[] as $key => $value) {
+foreach ($graphNode as $key => $value) {
   echo $key . '<br>';
   echo var_dump($value);
   foreach ($value as $key2 => $value2) {
