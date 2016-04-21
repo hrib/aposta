@@ -8,14 +8,14 @@ echo var_dump($zica);
 echo 'aqui<br><br>';
 
 $dsn = "pgsql:"
-    . "host=ec2-184-73-194-179.compute-1.amazonaws.com;"
-    . "dbname=ul28zxpr39no1rr;"
-    . "user=dj1wcxb3x9fy3x5;"
+    . "ec2-79-125-126-192.eu-west-1.compute.amazonaws.com;"
+    . "dbname=dlvqngd1fqchp;"
+    . "user=vhghkfpdfmtiro;"
     . "port=5432;"
     . "sslmode=require;"
-    . "password=p28xwd9pjcrzyzp6mf74m99cze";
+    . "password=1xYS19qztYiYuSdUBhuKDBQ6K1";
 
-$db = new PDO($zica);
+$db = new PDO($dsn);
 
 $query = "SELECT employee_id, last_name, first_name, title "
     . "FROM employees ORDER BY last_name ASC, first_name ASC";
