@@ -33,6 +33,7 @@ $graphNode = $response->getGraphNode();
 
 foreach ($graphNode['feed'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['message'] . '<br>';
+  echo '___________________________________________________';
 }
 
 
