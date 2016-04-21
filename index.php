@@ -24,11 +24,26 @@ $query = "CREATE TABLE employees ("
     . "title VARCHAR(50)"
     . ");";
 $result = $db->query($query);
+echo var_dump($result);
+echo 'aqui<br><br>';
+
+$query = "INSERT INTO employees (last_name, first_name, title) VALUES"
+    . "('Abreu', 'Mark', 'Project Coordinator'),"
+    . "('Nyman', 'Larry', 'Security Engineer'),"
+    . "('Simmons', 'Iris', 'Software Architect'),"
+    . "('Miller', 'Anthony', 'Marketing Manager'),"
+    . "('Leigh', 'Stephen', 'UI Developer'),"
+    . "('Lee', 'Sonia', 'Business Analyst');";
+$result = $db->query($query);
+echo var_dump($result);
+echo 'aqui<br><br>';
 
 $query = "SELECT employee_id, last_name, first_name, title "
     . "FROM employees ORDER BY last_name ASC, first_name ASC";
 $result = $db->query($query);
 echo var_dump($result);
+echo 'aqui<br><br>';
+
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     echo "<tr>";
     echo "<td>" . $row["employee_id"] . "</td>";
@@ -41,23 +56,5 @@ $result->closeCursor();
 
 //$app->register(new Herrera\Pdo\PdoServiceProvider(), $zica);
 echo 'aqui<br><br>';
-
-$app->get('/db/', function() use($app) {
-  $st = $app['pdo']->prepare('SELECT name FROM test_table');
-  $st->execute();
-
-  $names = array();
-  while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
-    $app['monolog']->addDebug('Row ' . $row['name']);
-    $names[] = $row;
-  }
-
-  return $app['twig']->render('database.twig', array(
-    'names' => $names
-  ));
-});
-
-
-
 
 ?>
