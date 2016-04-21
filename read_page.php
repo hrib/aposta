@@ -37,7 +37,7 @@ echo '<br>';
 print_r($get_data, 1 );
 echo '<br>';
 
-echo var_dump $get_data[0][0][1];
+echo var_dump($get_data[0][0][1]);
 echo '<br>';
 echo $get_data['feed']['data']['message'];
 
