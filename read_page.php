@@ -10,13 +10,13 @@ $fb = new Facebook\Facebook([
   'app_id' => $app_id,
   'app_secret' => $app_secret,
   'default_graph_version' => 'v2.6', // change to 2.5
-  //'default_access_token' => ''
+  'default_access_token' => $app_id . '|' . $app_secret
 ]);
 echo '<br>3<br>';
 
 
 try {
-  $response = $fb->get('/mblivre?fields=posts{comments}', $app_id . '|' . $app_secret);
+  $response = $fb->get('/mblivre?fields=posts{comments}');
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   echo 'Graph returned an error: ' . $e->getMessage();
   exit;
