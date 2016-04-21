@@ -39,7 +39,7 @@ foreach ($graphNode as $key => $value) {
         echo '__' . $key3 . '<br>';
         echo '__' . var_dump($value3) . '<br>';
         echo '__' . $value2['message'] . '<br>';
-        echo '__' . $value2=>'message' . '<br>';
+        //echo '__' . $value2=>'message' . '<br>';
       }
   }
   echo '<br>';
