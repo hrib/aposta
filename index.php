@@ -8,7 +8,7 @@ echo var_dump($zica);
 echo 'aqui<br><br>';
 
 $dsn = "pgsql:"
-    . "ec2-79-125-126-192.eu-west-1.compute.amazonaws.com;"
+    . "host=ec2-79-125-126-192.eu-west-1.compute.amazonaws.com;"
     . "dbname=dlvqngd1fqchp;"
     . "user=vhghkfpdfmtiro;"
     . "port=5432;"
