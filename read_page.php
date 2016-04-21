@@ -15,19 +15,15 @@ $fb = new Facebook\Facebook([
 echo '<br>3<br>';
 
 
-try {
   $response = $fb->get('/mblivre?fields=feed');
-} catch(Facebook\Exceptions\FacebookResponseException $e) {
-  echo 'Graph returned an error: ' . $e->getMessage();
-  exit;
-} catch(Facebook\Exceptions\FacebookSDKException $e) {
-  echo 'Facebook SDK returned an error: ' . $e->getMessage();
-  exit;
-}
 
-$graphObject = $response->getDecodedBody;
+        
+$graphObject = $response->getGraphObject;
+
 echo var_dump($graphObject);
-
+foreach($graphObject as $row){
+            var_dump($row);
+}
 
 
 
