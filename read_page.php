@@ -26,8 +26,11 @@ try {
 }
 
 $graphObject = $response->getGraphObject()->AsArray();
-//var_dump($graphObject );
-
+echo '<br>';
+var_dump($graphObject );
+echo '<br>';
+print_r( $graphObject, 1 );
+echo '<br>';
 
 
 $i = 0;
