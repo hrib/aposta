@@ -27,7 +27,19 @@ try {
 
 $graphObject = $response->getGraphObject();
 var_dump($graphObject );
-//$email = $graphObject->getProperty('email');
+
+$i = 0;
+foreach($graphObject['data'] as $post) {
+    echo $post['message'] . "<br />";
+    $i++; // add 1 to the counter
+    if ($i == 10) {
+        break;
+    }
+}
+
+
+
+
 
 
 echo '<br>4<br>';
