@@ -17,9 +17,18 @@ $dsn = "pgsql:"
 
 $db = new PDO($dsn);
 
+$query = "CREATE TABLE employees ("
+    . "employee_id SERIAL,"
+    . "last_name VARCHAR(30),"
+    . "first_name VARCHAR(30),"
+    . "title VARCHAR(50)"
+    . ");";
+$result = $db->query($query);
+
 $query = "SELECT employee_id, last_name, first_name, title "
     . "FROM employees ORDER BY last_name ASC, first_name ASC";
 $result = $db->query($query);
+echo var_dump($result);
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     echo "<tr>";
     echo "<td>" . $row["employee_id"] . "</td>";
