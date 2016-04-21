@@ -11,11 +11,21 @@ $fb = new Facebook\Facebook([
 ]);
 echo '<br>3<br>';
 
-$helper = $fb->getRedirectLoginHelper();
+
+try {
+  $response = $fb->get('/mblivre?fields=posts{comments}');
+} catch(Facebook\Exceptions\FacebookResponseException $e) {
+  echo 'Graph returned an error: ' . $e->getMessage();
+  exit;
+} catch(Facebook\Exceptions\FacebookSDKException $e) {
+  echo 'Facebook SDK returned an error: ' . $e->getMessage();
+  exit;
+}
+
+$graphObject = $response->getGraphObject();
+var_dump($graphObject );
+//$email = $graphObject->getProperty('email');
+
+
 echo '<br>4<br>';
-$permissions = ['email']; // Optional permissions
-$loginUrl = $helper->getLoginUrl('https://apostagol.herokuapp.com/callback.php', $permissions);
-echo '<br>5<br>';
-echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
-echo '<br>6<br>';
 ?>
