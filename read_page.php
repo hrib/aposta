@@ -17,20 +17,8 @@ echo '<br>3<br>';
 $response = $fb->get('/mblivre?fields=feed');
 //var_dump($response->getDecodedBody());
 echo '<br>4<br>';    
-$node = $response->getGraphNode();
-//var_dump($node->getField('message'));
-echo '<br>5<br>'; 
-
-//$userNode = $response->getGraphUser();
-//var_dump($userNode->getId());
-
-
-
 $graphNode = $response->getGraphNode();
-
 //echo $graphNode['feed'][0]['message'] . '<br><br>';
-//echo '<br>fim<br>';
-
 foreach ($graphNode['feed'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['message'] . '<br>';
   echo '___________________________________________________';
@@ -54,7 +42,20 @@ foreach ($graphNode['feed'] as $key => $value) {
 //  echo '<br>';
 //}
 
-
+$response = $fb->get('mblivre?fields=posts{comments}');
+//var_dump($response->getDecodedBody());
+echo '<br>4<br>';    
+$graphNode = $response->getGraphNode();
+//echo $graphNode['feed'][0]['message'] . '<br><br>';
+foreach ($graphNode['posts'] as $key => $value) {
+  foreach ($value['comments'] as $key2 => $value2) {
+    echo '<br>' . $key . ':' . $key2 . '>>>' . $value2['message'] . '<br>';
+    echo '<br>' . $key . ':' . $key2 . '>>>' . $value2['created_time'] . '<br>';
+    echo '<br>' . $key . ':' . $key2 . '>>>' . $value2['from']['name'] . '<br>';
+    echo '<br>' . $key . ':' . $key2 . '>>>' . $value2['from']['id'] . '<br>';
+    echo '___________________________________________________';
+  }
+}
 
 
 
