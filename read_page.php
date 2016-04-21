@@ -29,7 +29,7 @@ echo '<br>5<br>';
 $graphNode = $response->getGraphNode();
 
 // Iteration
-foreach ($graphNode as $key => $value) {
+foreach ($graphNode['items'] as $key => $value) {
   echo var_dump($graphNode);
   echo '<br>';
 }
