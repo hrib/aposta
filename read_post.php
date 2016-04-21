@@ -25,7 +25,6 @@ foreach ($graphNode['comments'] as $key => $value) {
     echo '<br>' . $key . ':' . $key . '>>>' . $value['from']['name'] . '<br>';
     echo '<br>' . $key . ':' . $key . '>>>' . $value['from']['id'] . '<br>';
     echo '___________________________________________________';
-  }
 }
 
 
