@@ -16,7 +16,7 @@ echo '<br>3<br>';
 
 
 try {
-  $response = $fb->get('/mblivre?fields=posts{comments}','1011974285544429|9b28ee403af9889f18c3fd6f3b9135c8');
+  $response = $fb->get('/mblivre?fields=posts{comments}', $app_id . '|' . $app_secret);
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   echo 'Graph returned an error: ' . $e->getMessage();
   exit;
