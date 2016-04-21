@@ -28,27 +28,30 @@ echo '<br>5<br>';
 
 $graphNode = $response->getGraphNode();
 
-echo $graphNode['feed'][0]['message'] . '<br><br>';
-echo $graphNode[0][0]['message'] . '<br><br>';
-echo '<br>fim<br>';
+//echo $graphNode['feed'][0]['message'] . '<br><br>';
+//echo '<br>fim<br>';
+
+foreach ($graphNode['feed'] as $key => $value) {
+  echo '<br>' . $key . ':' . $value['message'] . '<br>';
+}
 
 
-foreach ($graphNode as $key => $value) {
-  echo $key . '<br>';
+//foreach ($graphNode as $key => $value) {
+//  echo $key . '<br>';
   //echo var_dump($value);
-  foreach ($value as $key2 => $value2) {
-    echo $key2 . '<br>';
-    echo var_dump($value2) . '<br>';
-    echo '_y_' . $value[0]['message'] . '<br>';
-      foreach ($value2 as $key3 => $value3) {
+//  foreach ($value as $key2 => $value2) {
+//    echo $key2 . '<br>';
+//    echo var_dump($value2) . '<br>';
+//    echo '_y_' . $value[0]['message'] . '<br>';
+//      foreach ($value2 as $key3 => $value3) {
         //echo '__' . $key3 . '<br>';
         //echo '__' . var_dump($value3) . '<br>';
-        echo '_z_' . $value2['message'] . '<br>';
-      }
-  }
-  echo '<br>';
-  echo '<br>';
-}
+//        echo '_z_' . $value2['message'] . '<br>';
+//      }
+//  }
+//  echo '<br>';
+//  echo '<br>';
+//}
 
 
 
