@@ -14,7 +14,7 @@ $fb = new Facebook\Facebook([
 ]);
 echo '<br>3<br>';
 
-$response = $fb->get('204223673035117_364562457001237?fields=comments.limit(1000)');
+$response = $fb->get('204223673035117_364562457001237?fields=comments.limit(999)');
 //var_dump($response->getDecodedBody());
 echo '<br>4<br>';    
 $graphNode = $response->getGraphNode();
