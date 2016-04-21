@@ -1,19 +1,5 @@
 mbstring nao habilitado no HEROKU, entao substitui por my_mb_substr
 
-src/Facebook/PseudoRandomString/PseudoRandomStringGeneratorTrait.php
-trait PseudoRandomStringGeneratorTrait
-{
-
-    public function binToHex($binaryData, $length)
-    {
-        //if (true !== extension_loaded('mbstring')) {
-        //    throw new \RuntimeException('Multibyte support required');
-        //}
-        //return \mb_substr(\bin2hex($binaryData), 0, $length);
-        return my_mb_substr(\bin2hex($binaryData), 0, $length);
-    }
-}
-
 function my_mb_substr($string, $offset, $length)
 {
   $arr = preg_split("//u", $string);
@@ -21,8 +7,25 @@ function my_mb_substr($string, $offset, $length)
   return implode("", $slice);
 }
 
- aposta/src/Facebook/HttpClients/FacebookCurlHttpClient.php
 
+
+src/Facebook/PseudoRandomString/PseudoRandomStringGeneratorTrait.php
+
+            trait PseudoRandomStringGeneratorTrait
+            {
+            
+                public function binToHex($binaryData, $length)
+                {
+                    //if (true !== extension_loaded('mbstring')) {
+                    //    throw new \RuntimeException('Multibyte support required');
+                    //}
+                    //return \mb_substr(\bin2hex($binaryData), 0, $length);
+                    return my_mb_substr(\bin2hex($binaryData), 0, $length);
+                }
+            }
+
+
+ aposta/src/Facebook/HttpClients/FacebookCurlHttpClient.php
 
         //$rawHeaders = mb_substr($this->rawResponse, 0, $headerSize);
         //$rawBody = mb_substr($this->rawResponse, $headerSize);
