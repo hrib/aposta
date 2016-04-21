@@ -1,7 +1,7 @@
 <?php
 session_start();
 echo '<br>1<br>';
-//require_once 'src/Facebook/autoload.php';
+require_once 'src/Facebook/autoload.php';
 echo '<br>2<br>';
 
 $app_id = '1011974285544429';
