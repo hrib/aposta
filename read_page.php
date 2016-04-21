@@ -14,17 +14,27 @@ $fb = new Facebook\Facebook([
 ]);
 echo '<br>3<br>';
 
+$response = $fb->get('/mblivre?fields=feed');
+var_dump($response->getDecodedBody());
+echo '<br>4<br>';    
+$node = $response->getGraphNode();
+var_dump($node->getField('message'));
+echo '<br>5<br>'; 
 
-  $response = $fb->get('/mblivre?fields=feed');
+//$userNode = $response->getGraphUser();
+//var_dump($userNode->getId());
 
-        
-$graphObject = $response->getGraphObject;
 
-echo var_dump($graphObject);
-foreach($graphObject as $row){
-            var_dump($row);
+
+$graphNode = $response->getGraphNode();
+
+// Array access
+//$id = $graphNode['id'];
+
+// Iteration
+foreach ($graphNode as $key => $value) {
+  echo var_dump($graphNode);
 }
-
 
 
 
