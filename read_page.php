@@ -35,11 +35,11 @@ foreach ($graphNode as $key => $value) {
   foreach ($value as $key2 => $value2) {
     echo $key2 . '<br>';
     echo var_dump($value2) . '<br>';
+    echo '_y_' . $value[0]['message'] . '<br>';
       foreach ($value2 as $key3 => $value3) {
-        echo '__' . $key3 . '<br>';
-        echo '__' . var_dump($value3) . '<br>';
-        echo '__' . $value2['message'] . '<br>';
-        //echo '__' . $value2=>'message' . '<br>';
+        //echo '__' . $key3 . '<br>';
+        //echo '__' . var_dump($value3) . '<br>';
+        echo '_z_' . $value2['message'] . '<br>';
       }
   }
   echo '<br>';
