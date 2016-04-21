@@ -30,7 +30,7 @@ $graphNode = $response->getGraphNode();
 
 // Iteration
 foreach ($graphNode['items'] as $key => $value) {
-  echo var_dump($graphNode);
+  echo var_dump($graphNode['items']);
   echo '<br>';
 }
 
