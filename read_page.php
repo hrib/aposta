@@ -25,7 +25,7 @@ try {
   exit;
 }
 
-$graphObject = $response->getGraphObject()->getDecodedBody;
+$graphObject = $response->getDecodedBody;
 echo var_dump($graphObject);
 
 
