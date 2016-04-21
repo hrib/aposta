@@ -166,8 +166,15 @@ class FacebookCurlHttpClient implements FacebookHttpClientInterface
     {
         $headerSize = $this->getHeaderSize();
 
-        $rawHeaders = mb_substr($this->rawResponse, 0, $headerSize);
-        $rawBody = mb_substr($this->rawResponse, $headerSize);
+        //$rawHeaders = mb_substr($this->rawResponse, 0, $headerSize);
+        //$rawBody = mb_substr($this->rawResponse, $headerSize);
+
+        $rawHeaders = my_mb_substr($this->rawResponse, 0, $headerSize);
+        $rawBody = my_mb_substr($this->rawResponse, $headerSize);
+
+
+
+
 
         return [trim($rawHeaders), trim($rawBody)];
     }
