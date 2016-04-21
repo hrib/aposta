@@ -18,7 +18,7 @@ $response = $fb->get('/mblivre?fields=feed');
 //var_dump($response->getDecodedBody());
 echo '<br>4<br>';    
 $node = $response->getGraphNode();
-var_dump($node->getField('message'));
+//var_dump($node->getField('message'));
 echo '<br>5<br>'; 
 
 //$userNode = $response->getGraphUser();
@@ -28,24 +28,18 @@ echo '<br>5<br>';
 
 $graphNode = $response->getGraphNode();
 
-// Iteration
-foreach ($graphNode as $key => $value) {
-  echo $key . '<br>';
-  echo var_dump($value);
-  echo '<br>';
-  echo '<br>';
-}
-
 
 foreach ($graphNode as $key => $value) {
   echo $key . '<br>';
-  echo var_dump($value);
+  //echo var_dump($value);
   foreach ($value as $key2 => $value2) {
     echo $key2 . '<br>';
     echo var_dump($value2) . '<br>';
       foreach ($value2 as $key3 => $value3) {
         echo '__' . $key3 . '<br>';
         echo '__' . var_dump($value3) . '<br>';
+        echo '__' . $value2['message'] . '<br>';
+        echo '__' . $value2=>'message' . '<br>';
       }
   }
   echo '<br>';
