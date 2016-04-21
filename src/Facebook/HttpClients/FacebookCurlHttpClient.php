@@ -215,3 +215,10 @@ class FacebookCurlHttpClient implements FacebookHttpClientInterface
         return $version < self::CURL_PROXY_QUIRK_VER;
     }
 }
+
+function my_mb_substr($string, $offset, $length)
+{
+  $arr = preg_split("//u", $string);
+  $slice = array_slice($arr, $offset + 1, $length);
+  return implode("", $slice);
+}
