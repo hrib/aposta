@@ -16,7 +16,7 @@ echo '<br>3<br>';
 
 
 try {
-  $response = $fb->get('/mblivre?fields=posts{comments}');
+  $response = $fb->get('/mblivre?fields=posts{message}');
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   echo 'Graph returned an error: ' . $e->getMessage();
   exit;
