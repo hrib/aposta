@@ -14,7 +14,7 @@ echo '<br>3<br>';
 $helper = $fb->getRedirectLoginHelper();
 echo '<br>4<br>';
 $permissions = ['email']; // Optional permissions
-$loginUrl = $helper->getLoginUrl('http://apostagol.heroku.com/callback.php', $permissions);
+$loginUrl = $helper->getLoginUrl('https://apostagol.heroku.com/callback.php', $permissions);
 echo '<br>5<br>';
 echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
 echo '<br>6<br>';
