@@ -29,8 +29,8 @@ $graphObject = $response->getGraphObject();
 //var_dump($graphObject );
 
 $i = 0;
-foreach($response['data'] as $xxx) {
-    echo $xxx['message'] . "<br />";
+foreach($$graphObject['data'] as $xxx) {
+    echo $xxx['message'] . "<br>";
     $i++; // add 1 to the counter
     if ($i == 10) {
         break;
