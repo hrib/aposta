@@ -57,6 +57,15 @@ trait PseudoRandomStringGeneratorTrait
         if (true !== extension_loaded('mbstring')) {
             throw new \RuntimeException('Multibyte support required');
         }
-        return \mb_substr(\bin2hex($binaryData), 0, $length);
+        //return \mb_substr(\bin2hex($binaryData), 0, $length);
+        return my_mb_substr(\bin2hex($binaryData), 0, $length);
     }
+}
+
+
+function my_mb_substr($string, $offset, $length)
+{
+  $arr = preg_split("//u", $string);
+  $slice = array_slice($arr, $offset + 1, $length);
+  return implode("", $slice);
 }
