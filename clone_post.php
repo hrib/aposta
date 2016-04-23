@@ -18,38 +18,10 @@ foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['message'] . '<br>';
   echo '<br>' . $key . ':' . $value['link'] . '<br>';
   echo '<br>' . $key . ':' . $value['full_picture'] . '<br>';
-  // '<br>' . $key . ':' . $value['created_time'] . '<br>';
-  $curtime = time();
-  $z = gmdate(DATE_ISO8601, $curtime);
-
-  echo '<br>';
-  echo var_dump($value);
-
-  
-  echo '<br>';
-  $b = $value['created_time'];
-  echo var_dump($b);
-  echo '<br>';
-  $a = $value['created_time']->date;
-  echo var_dump($a);
-  echo '<br>';
-  //$converted_date_time = date( 'Y-m-d H:i:s', strtotime($a));
-  //echo '<br> cd:' . $converted_date_time . '<br>';
-  //$letras = date("M d Y h:ia", $a);
-  //echo '<br> letras:' . $letras . '<br>';
-  //$ts = strtotime($a);
-  //echo '<br> ts:' . $ts . '<br>';
-  //$myTime = gmdate(DATE_ISO8601, $a);
-  //echo '<br> mytime:' . $myTime . '<br>';
-  //echo '<br> diff:' . $z - $a . '<br>';
-  
-  //echo '<br> tempoatual:' . $curtime . '<br>';
-  //$y = gmdate(DATE_ISO8601, $value['created_time']);
-  //echo '<br> tempoatual convertido:' . $z . '<br>';
-  //echo '<br> tempoapost convertido:' . $y . '<br>';
-  //echo '<br> diff:' . $z - $y . '<br>';
-  //  echo '<br> diff:' . $curtime - $value['created_time'] . '<br>';
-  echo '<br>___________________________________________________<br>';
+  echo '<br>' . $key . ':' . $value['created_time']->date . '<br>';
+  $curtime = gmdate(DATE_ISO8601, time());
+  echo '<br> diff:' . $curtime - $value['created_time']->date . '<br>';
+  echo '<br>_______________________________________________<br>';
 }
 
 
