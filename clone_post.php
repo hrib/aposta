@@ -22,8 +22,10 @@ foreach ($graphNode['posts'] as $key => $value) {
   $curtime = time();
   echo '<br> tempoatual:' . $curtime . '<br>';
   $z = gmdate(DATE_ISO8601, $curtime);
+  $y = gmdate(DATE_ISO8601, $value['created_time']);
   echo '<br> tempoatual convertido:' . $z . '<br>';
-  echo '<br> diff:' . $z - $value['created_time'] . '<br>';
+  echo '<br> tempoapost convertido:' . $y . '<br>';
+  echo '<br> diff:' . $z - $y . '<br>';
   echo '<br>___________________________________________________<br>';
 }
 
