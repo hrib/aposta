@@ -18,8 +18,8 @@ foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['message'] . '<br>';
   echo '<br>' . $key . ':' . $value['link'] . '<br>';
   echo '<br>' . $key . ':' . $value['full_picture'] . '<br>';
-  //$a = $value['created_time']->date;
-  $created_time = strtotime($value['created_time']->date);  //unix
+  $created_timeSTR = $value['created_time']->date;
+  $created_time = strtotime($created_timeSTR);  //unix
   echo '<br>' . $key . ':' . $created_time . '<br>';
   $tempo = time();
   $diffunix = $tempo - $created_time;
