@@ -23,7 +23,7 @@ foreach ($graphNode['posts'] as $key => $value) {
   $z = gmdate(DATE_ISO8601, $curtime);
   
   $a = $value['created_time'];
-  
+  echo var_dump($a);
   $converted_date_time = date( 'Y-m-d H:i:s', strtotime($a));
   echo '<br> cd:' . $converted_date_time . '<br>';
   $letras = date("M d Y h:ia", $a);
