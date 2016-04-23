@@ -30,7 +30,7 @@ foreach ($graphNode['posts'] as $key => $value) {
   $b = $value['created_time'];
   echo var_dump($b);
   echo '<br>';
-  $a = $value['created_time']['date'];
+  $a = $value['created_time']->date;
   echo var_dump($a);
   echo '<br>';
   //$converted_date_time = date( 'Y-m-d H:i:s', strtotime($a));
