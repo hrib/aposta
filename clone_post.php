@@ -20,6 +20,13 @@ foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['full_picture'] . '<br>';
   // '<br>' . $key . ':' . $value['created_time'] . '<br>';
   $curtime = time();
+  
+  $ts = strtotime($value['created_time']);
+  echo '<br> ts:' . $ts . '<br>';
+  $myTime = gmdate(DATE_ISO8601, $ts);
+  echo '<br> mytime:' . $myTime . '<br>';
+  
+  
   echo '<br> tempoatual:' . $curtime . '<br>';
   $z = gmdate(DATE_ISO8601, $curtime);
   $y = gmdate(DATE_ISO8601, $value['created_time']);
