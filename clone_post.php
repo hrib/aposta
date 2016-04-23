@@ -12,7 +12,7 @@ $fb = new Facebook\Facebook([
   'default_access_token' => $app_id . '|' . $app_secret
 ]);
 //&date_format=U
-$response = $fb->get('/' . $pageOriginal . '?fields=posts{message,link,full_picture,created_time}');
+$response = $fb->get('/' . $pageOriginal . '?fields=posts{message,link,full_picture,created_time}&date_format=U');
 $graphNode = $response->getGraphNode();
 foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['message'] . '<br>';
