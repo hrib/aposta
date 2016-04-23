@@ -11,8 +11,8 @@ $fb = new Facebook\Facebook([
   'default_graph_version' => 'v2.6', // change to 2.5
   'default_access_token' => $app_id . '|' . $app_secret
 ]);
-
-$response = $fb->get('/' . $pageOriginal . '?fields=posts{message,link,full_picture,created_time}&date_format=U');
+//&date_format=U
+$response = $fb->get('/' . $pageOriginal . '?fields=posts{message,link,full_picture,created_time}');
 $graphNode = $response->getGraphNode();
 foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['message'] . '<br>';
@@ -21,9 +21,11 @@ foreach ($graphNode['posts'] as $key => $value) {
   // '<br>' . $key . ':' . $value['created_time'] . '<br>';
   $curtime = time();
   
+  $letras=date("M d Y h:ia",$value['created_time']);
+  echo '<br> letras:' . $letras . '<br>';
   $ts = strtotime($value['created_time']);
   echo '<br> ts:' . $ts . '<br>';
-  $myTime = gmdate(DATE_ISO8601, $ts);
+  $myTime = gmdate(DATE_ISO8601, $value['created_time']);
   echo '<br> mytime:' . $myTime . '<br>';
   
   
