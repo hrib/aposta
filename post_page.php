@@ -17,6 +17,7 @@ $albumid = '1509106142644949';
 $fb = new Facebook\Facebook([
   'app_id' => $app_id,
   'app_secret' => $app_secret,
+  'aid' => $albumid,
   'default_graph_version' => 'v2.6', // change to 2.5
   //'default_access_token' => $app_id . '|' . $app_secret
 ]);
