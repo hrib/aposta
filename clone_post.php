@@ -33,8 +33,8 @@ foreach ($graphNode['posts'] as $key => $value) {
   $curtime = gmdate(DATE_ISO8601, $tempo);
   echo '<br> tempo:' . $tempo . '<br>';
   echo '<br> curtime:' . $curtime . '<br>';
-  echo '<br> diff string:' . $tempo - $a . '<br>';
-  echo '<br> diff unix:' . $curtime - $c . '<br>';
+  echo '<br> diff string:' . $tempo - $c . '<br>';
+  echo '<br> diff unix:' . $curtime - $a . '<br>';
   echo '<br>_______________________________________________<br>';
 }
 
