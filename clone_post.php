@@ -12,7 +12,7 @@ $fb = new Facebook\Facebook([
   'default_access_token' => $app_id . '|' . $app_secret
 ]);
 //&date_format=U
-$response = $fb->get('/' . $pageOriginal . '?fields=posts{message,link,full_picture,created_time}&date_format=U');
+$response = $fb->get('/' . $pageOriginal . '?fields=posts{message,link,full_picture,created_time}');
 $graphNode = $response->getGraphNode();
 foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['message'] . '<br>';
@@ -20,17 +20,19 @@ foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['full_picture'] . '<br>';
   // '<br>' . $key . ':' . $value['created_time'] . '<br>';
   $curtime = time();
+  $z = gmdate(DATE_ISO8601, $curtime);
   
-  $letras=date("M d Y h:ia",$value['created_time']);
+  
+  $a = $value['created_time'];
+  $letras = date("M d Y h:ia", $a);
   echo '<br> letras:' . $letras . '<br>';
-  $ts = strtotime($value['created_time']);
+  $ts = strtotime($a);
   echo '<br> ts:' . $ts . '<br>';
-  $myTime = gmdate(DATE_ISO8601, $value['created_time']);
+  $myTime = gmdate(DATE_ISO8601, $a);
   echo '<br> mytime:' . $myTime . '<br>';
-  
+  echo '<br> diff:' . $z - $a . '<br>';
   
   echo '<br> tempoatual:' . $curtime . '<br>';
-  $z = gmdate(DATE_ISO8601, $curtime);
   $y = gmdate(DATE_ISO8601, $value['created_time']);
   echo '<br> tempoatual convertido:' . $z . '<br>';
   echo '<br> tempoapost convertido:' . $y . '<br>';
