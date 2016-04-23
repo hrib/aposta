@@ -25,12 +25,13 @@ foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>';
   echo $a;
   //echo '<br>' . $key . ':' . $a . '<br>';
-  $b = gmdate(DATE_ISO8601, $a);
-  $c = strtotime($a);
-  echo '<br> b' . $b . '<br>';
+  //$b = gmdate(DATE_ISO8601, $a);
+  $c = strtotime($a);  //unix
+  //echo '<br> b' . $b . '<br>';
   echo '<br> c' . $c . '<br>';
   $curtime = gmdate(DATE_ISO8601, time());
-  echo '<br> diff:' . $curtime - $b . '<br>';
+  echo '<br> diff string:' . time() - $a . '<br>';
+  echo '<br> diff unix:' . $curtime - $c . '<br>';
   echo '<br>_______________________________________________<br>';
 }
 
