@@ -18,7 +18,7 @@ foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['message'] . '<br>';
   echo '<br>' . $key . ':' . $value['link'] . '<br>';
   echo '<br>' . $key . ':' . $value['full_picture'] . '<br>';
-  echo '<br>' . $key . ':' . $value['created_time'] . '<br>';
+  //echo '<br>' . $key . ':' . $value['created_time'] . '<br>';
   $curtime = time();
   echo '<br>' . $curtime . '<br>';
   $z = gmdate(DATE_ISO8601, $curtime);
