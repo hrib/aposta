@@ -18,9 +18,10 @@ foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['message'] . '<br>';
   echo '<br>' . $key . ':' . $value['link'] . '<br>';
   echo '<br>' . $key . ':' . $value['full_picture'] . '<br>';
-  echo '<br>' . $key . ':' . $value['created_time']->date . '<br>';
+  $a = strtotime($value['created_time']->date);
+  echo '<br>' . $key . ':' . $a . '<br>';
   $curtime = gmdate(DATE_ISO8601, time());
-  echo '<br> diff:' . $curtime - $value['created_time']->date . '<br>';
+  echo '<br> diff:' . $curtime - $a . '<br>';
   echo '<br>_______________________________________________<br>';
 }
 
