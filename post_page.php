@@ -20,8 +20,10 @@ $fb = new Facebook\Facebook([
   //'default_access_token' => $app_id . '|' . $app_secret
 ]);
 
+
+  // 'link' => 'http://apostagol.herokuapp.com/image.jpg',
 $linkData = [
-  'link' => 'http://apostagol.herokuapp.com/image.jpg',
+  'image' => 'http://apostagol.herokuapp.com/image.jpg',
   'message' => 'oi',
 ];
 
