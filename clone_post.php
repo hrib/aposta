@@ -21,6 +21,10 @@ foreach ($graphNode['posts'] as $key => $value) {
   // '<br>' . $key . ':' . $value['created_time'] . '<br>';
   $curtime = time();
   $z = gmdate(DATE_ISO8601, $curtime);
+
+  echo '<br>';
+  echo var_dump($value);
+
   
   echo '<br>';
   $b = $value['created_time'];
