@@ -24,7 +24,7 @@ $fb = new Facebook\Facebook([
 
   // 'link' => 'http://apostagol.herokuapp.com/image.jpg',
 $linkData = [
-  'image' => '@http://apostagol.herokuapp.com/image.jpg',
+  'image' => 'http://apostagol.herokuapp.com/image.jpg',
   'message' => 'teste',
 ];
 
