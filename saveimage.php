@@ -7,7 +7,7 @@ $storedimg = file_put_contents("image.jpg", file_get_contents($imgurl));
 echo $storedimg;
 echo '<br>2<br>';
 //$imgteste = 'http://dedarwin.net/wp-content/uploads/2015/02/HTML.jpg';
-echo '<img src=' . $storedimg . '>';
+echo '<img src=' . $storedimg . '.jpg>';
 
 
 ?>
