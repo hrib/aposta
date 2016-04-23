@@ -12,13 +12,13 @@ $fb = new Facebook\Facebook([
   'default_access_token' => $app_id . '|' . $app_secret
 ]);
 
-$response = $fb->get('/' . $pageOriginal . '?fields=posts{message,link,full_picture,created_time}');
+$response = $fb->get('/' . $pageOriginal . '?fields=posts{message,link,full_picture,created_time}&date_format=U');
 $graphNode = $response->getGraphNode();
 foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['message'] . '<br>';
   echo '<br>' . $key . ':' . $value['link'] . '<br>';
   echo '<br>' . $key . ':' . $value['full_picture'] . '<br>';
-  //echo '<br>' . $key . ':' . $value['created_time'] . '<br>';
+  echo '<br>' . $key . ':' . $value['created_time'] . '<br>';
   $curtime = time();
   echo '<br> tempoatual:' . $curtime . '<br>';
   $z = gmdate(DATE_ISO8601, $curtime);
