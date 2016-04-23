@@ -20,7 +20,7 @@ foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['full_picture'] . '<br>';
   $a = strtotime($value['created_time']->date);
   echo var_dump($value['created_time']->date);
-  echo '<br>'
+  echo '<br>';
   echo var_dump($a);
   //echo '<br>' . $key . ':' . $a . '<br>';
   $curtime = gmdate(DATE_ISO8601, time());
