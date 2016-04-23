@@ -20,9 +20,10 @@ foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['full_picture'] . '<br>';
   //echo '<br>' . $key . ':' . $value['created_time'] . '<br>';
   $curtime = time();
-  echo '<br>' . $curtime . '<br>';
+  echo '<br> tempoatual:' . $curtime . '<br>';
   $z = gmdate(DATE_ISO8601, $curtime);
-  echo '<br>' . $z - $value['created_time'] . '<br>';
+  echo '<br> tempoatual convertido:' . $z . '<br>';
+  echo '<br> diff:' . $z - $value['created_time'] . '<br>';
   echo '<br>___________________________________________________<br>';
 }
 
