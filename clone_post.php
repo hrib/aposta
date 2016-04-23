@@ -18,26 +18,18 @@ foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['message'] . '<br>';
   echo '<br>' . $key . ':' . $value['link'] . '<br>';
   echo '<br>' . $key . ':' . $value['full_picture'] . '<br>';
-  echo var_dump($value['created_time']);
-  echo '<br>';
-  $a = $value['created_time']->date;
-  echo var_dump($a);
-  echo '<br>';
-  echo $a;
-  //echo '<br>' . $key . ':' . $a . '<br>';
-  //$b = gmdate(DATE_ISO8601, $a);
-  $c = strtotime($a);  //unix
-  //echo '<br> b' . $b . '<br>';
-  echo '<br> c' . $c . '<br>';
+  //$a = $value['created_time']->date;
+  $created_time = strtotime($value['created_time']->date);  //unix
+  echo '<br>' . $key . ':' . $created_time . '<br>';
   $tempo = time();
-  $curtime = gmdate(DATE_ISO8601, $tempo);
-  echo '<br> tempo:' . $tempo . '<br>';
-  echo '<br> curtime:' . $curtime . '<br>';
-  $diffunix = $tempo - $c;
-  $diffstring = $curtime - $a;
-  echo '<br> diff string:' . $diffstring . '<br>';
-  echo '<br> diff unix:' . $diffunix . '<br>';
-  echo '<br>_______________________________________________<br>';
+  $diffunix = $tempo - $created_time;
+  //$curtime = gmdate(DATE_ISO8601, $tempo);
+  //echo '<br> tempo:' . $tempo . '<br>';
+  //echo '<br> curtime:' . $curtime . '<br>';
+  //$diffstring = $curtime - $a;
+  //echo '<br> diff string:' . $diffstring . '<br>';
+  echo '<br> diff tempo:' . $diffunix . '<br>';
+  echo '<br>________________________________<br>';
 }
 
 
