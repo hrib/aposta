@@ -14,7 +14,7 @@ $fb = new Facebook\Facebook([
 
 $response = $fb->get('/' . $pageOriginal . '?fields=posts{message,link,full_picture,created_time}');
 $graphNode = $response->getGraphNode();
-foreach ($graphNode['feed'] as $key => $value) {
+foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['message'] . '<br>';
   echo '<br>' . $key . ':' . $value['link'] . '<br>';
   echo '<br>' . $key . ':' . $value['full_picture'] . '<br>';
