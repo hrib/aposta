@@ -26,6 +26,7 @@ foreach ($graphNode['posts'] as $key => $value) {
   echo '<br> tempoatual convertido:' . $z . '<br>';
   echo '<br> tempoapost convertido:' . $y . '<br>';
   echo '<br> diff:' . $z - $y . '<br>';
+    echo '<br> diff:' . $curtime - $value['created_time'] . '<br>';
   echo '<br>___________________________________________________<br>';
 }
 
