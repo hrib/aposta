@@ -12,6 +12,7 @@ echo '<br>2<br>';
 $app_id = '1011974285544429';
 $app_secret = '9b28ee403af9889f18c3fd6f3b9135c8';
 $page_access_token = 'CAAOYYpZCPyZB0BAJQJbaTZAeZAACAh2UHWAZC5JFWKWl9ZCAnz9HZBuhvgbSzzEkmiRJSLA76rB130UmFZAVX8oyOoAQJAZB6KzKnZCYb6tVh3El0yexuf92xOMn7u5wTME7dCAlUGrFb7l9BAO4iUitD1wUFgCXKUip3N03NTF4jQQjlrLVUIBhcIp0ZC74HY35Lzs3fDevH46LAZDZD';
+$albumid = '1509106142644949';
 
 $fb = new Facebook\Facebook([
   'app_id' => $app_id,
@@ -28,7 +29,8 @@ $linkData = [
 ];
 
 try {
-    $response = $fb->post('/Theballisonthetable/feed', $linkData, $page_access_token);
+//    $response = $fb->post('/Theballisonthetable/feed', $linkData, $page_access_token);
+    $response = $fb->post('/' . $albumid . '/photos', $linkData, $page_access_token);
 
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
     echo 'Graph returned an error: ' . $e->getMessage();
