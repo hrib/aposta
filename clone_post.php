@@ -16,7 +16,7 @@ $query = "SELECT id1, id2, id3, id4 FROM dados WHERE id1 = 'brasilreal'";
 $result = $db->query($query);
 echo var_dump($result);
 
-$row = $result->fetch(PDO::FETCH_ASSOC))
+$row = $result->fetch(PDO::FETCH_ASSOC);
 //echo "<br>" . $row["id1"] . "<br>";
 $result->closeCursor();
 
