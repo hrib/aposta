@@ -1,20 +1,7 @@
 <?php
 
 $dbopts = parse_url(getenv('DATABASE_URL'));
-echo var_dump($dbopts);
-$zica = array('pdo.dsn' => 'pgsql:dbname='.ltrim($dbopts["path"],'/').';host='.$dbopts["host"] . ';port=' . $dbopts["port"], 'pdo.username' => $dbopts["user"], 'pdo.password' => $dbopts["pass"]);
-echo 'aqui<br><br>';
-echo var_dump($zica);
-echo 'aqui<br><br>';
 
-$dsn = "pgsql:"
-    . "host=ec2-79-125-126-192.eu-west-1.compute.amazonaws.com;"
-    . "dbname=dlvqngd1fqchp;"
-    . "user=vhghkfpdfmtiro;"
-    . "port=5432;"
-    . "sslmode=require;"
-    . "password=1xYS19qztYiYuSdUBhuKDBQ6K1";
-    
 $dsn = "pgsql:"
     . "host=" . $dbopts["host"] . ";"
     . "dbname=". ltrim($dbopts["path"],'/') . ";"
