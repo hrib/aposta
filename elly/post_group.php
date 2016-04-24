@@ -9,7 +9,7 @@ file_put_contents("image.jpg", file_get_contents($imgurl));
 
 
 require_once '../src/Facebook/autoload.php';
-echo '<br>2<br>';
+
 $app_id = '874168309359589';
 $app_secret = '5abc1d036bf115bb722115e436ad5f6b';
 $access_token = 'EAAMbDSuNoZBUBAH8TG7atHewGb13hYSd63B6RhGC5Ra69kU9fsIl1xCbxxz8aZBFED1ydfXrFxUwcgMExAFJe9Lv31wKAk1t8UgQIXh1ub1o24u7OnOWjal0xcdIYqi3EnSupTwZAd5CsF86bQr7JdR2DbrSU1uFFkXjhzT8AZDZD';
@@ -41,5 +41,6 @@ try {
     echo 'Facebook SDK returned an error: ' . $e->getMessage();
     exit;
 }
+echo '<br>fim<br>';
 
 ?>
