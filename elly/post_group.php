@@ -17,7 +17,7 @@ $fb = new Facebook\Facebook([
   'default_access_token' => $app_id . '|' . $app_secret
 ]);
 
-
+echo '<table>';
 $response = $fb->get('/?ids='. $pageOriginal .'&fields=name,posts.limit(2){message,link,full_picture,created_time}');
 $graphNode = $response->getGraphNode();
 foreach ($graphNode as $pagina) {
