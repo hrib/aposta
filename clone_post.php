@@ -56,7 +56,7 @@ function PostClone($fb, $message, $link, $picture){
     $target = '/Theballisonthetable/feed';
     $linkData = [
       'link' => $link,
-      'message' => message,
+      'message' => $message,
     ];
   }
 
