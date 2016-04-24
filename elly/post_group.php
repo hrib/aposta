@@ -25,7 +25,7 @@ $fb = new Facebook\Facebook([
   //  'image' => 'http://apostagol.herokuapp.com/image.jpg',
 $linkData = [
   'source' => $fb->fileToUpload('image.jpg'),
-  'message' => 'teste2',
+  'message' => 'teste',
 ];
 
 try {
@@ -53,7 +53,7 @@ $linkData = [
 ];
 
 try {
-  $response = $fb->post('/' . $groupid . '/', $linkData, $access_token);
+  $response = $fb->post('/groups/' . $groupid . '/', $linkData, $access_token);
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
     echo 'Graph returned an error: ' . $e->getMessage();
     exit;
