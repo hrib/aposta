@@ -21,7 +21,7 @@ foreach ($graphNode['posts'] as $key => $value) {
   var_dump($value['created_time']); //precisa disso pra funcionar
   $created_timeSTR = $value['created_time']->date;
   $created_time = strtotime($created_timeSTR);  //unix
-  echo '<br>str' . $key . ':' . $created_timeSTR . '<br>';
+  echo '<br>' . $key . ':' . $created_timeSTR . '<br>';
   //echo '<br>time' . $key . ':' . $created_time . '<br>';
   $tempo = time();
   $diffunix = $tempo - $created_time;
