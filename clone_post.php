@@ -47,7 +47,7 @@ echo var_dump($graphNode->mblivre);
 //foreach ($graphNode[0] as $key => $value) {
 //echo var_dump ($value['posts']);
 //}
-echo '<br>aqui<br>'
+echo '<br>aqui<br>';
 foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['message'] . '<br>';
   echo '<br>' . $key . ':' . $value['link'] . '<br>';
