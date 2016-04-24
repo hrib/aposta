@@ -37,7 +37,7 @@ $response = $fb->get('/?ids='. $pageOriginal .'&fields=posts{message,link,full_p
 
 
 $graphNode = $response->getGraphNode();
-écho var_dump($graphNode);
+echo var_dump($graphNode);
 foreach ($graphNode['ids'] as $key => $value) {
 echo var_dump $value['posts'];
 }
