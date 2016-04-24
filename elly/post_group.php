@@ -7,8 +7,12 @@ $app_id = '874168309359589';
 $app_secret = '5abc1d036bf115bb722115e436ad5f6b';
 $access_token = 'EAAMbDSuNoZBUBAFQlIs4qKKn0VYIPB2eH36bZBSSyt6787TuFSWPHZAcd2RE2KAtpcBsc8oy7cPyO6lOXEsvcvyySsfojeE6o7x8YHGqBKyAZAEeDC1GSDqRdXKVYSvR97rpmvxX9pvYi7xkJapycq84ZC5ZBhVUYZD';
 $myalbumid = '187737951614546';
-$groupid = '211312725908106';
-$pageOriginal = 'Anonimasgostosasbr,804933709548543';
+
+$groupid = array("211312725908106", "643876078994477", "766144473504153", "httws");
+$pages_to_copy = array('Anonimasgostosasbr','804933709548543','GostosaD');
+$rb = rand(0,2);
+$rc = rand(0,2);
+$pageOriginal = $pages_to_copy[$rb] . ',' . $pages_to_copy[$rc];
 
 $fb = new Facebook\Facebook([
   'app_id' => $app_id,
@@ -34,12 +38,12 @@ foreach ($graphNode as $pagina) {
       $tempo = time();
       $diffunix = $tempo - $created_time;
       echo '<td> diff tempo:' . $diffunix . '</td>';
-      if($diffunix < (3600 * 24 * 2)){
+      if($diffunix < (3600 * 1 * 1)){
         PostCloneUser($fb, $myalbumid, $groupid, $access_token, $value['message'], $value['link'], $value['full_picture']);
       }else{
         echo '<td></td>';
         echo '<td></td>';
-        //echo '<td></td>';
+        echo '<td></td>';
         //echo '<td></td>';
       }
       echo '</tr>';
@@ -86,6 +90,9 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $message, $link
   $link_post = 'https://www.facebook.com/' . $userNode['id'];
   //echo $link_post . '<br>';
   
+  $up = sizeof($grupoid) - 1;
+  $ra = rand(0,$up);
+  $gruporand = $grupoid[$ra];
   
   $linkData = [
     'link' => $link_post,
@@ -93,7 +100,7 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $message, $link
   ];
   
   try {
-    $response = $fb->post('/' . $groupid . '/feed', $linkData, $access_token);
+    $response = $fb->post('/' . $grouprand . '/feed', $linkData, $access_token);
   } catch(Facebook\Exceptions\FacebookResponseException $e) {
       echo 'Graph returned an error: ' . $e->getMessage();
       exit;
@@ -101,7 +108,7 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $message, $link
       echo 'Facebook SDK returned an error: ' . $e->getMessage();
       exit;
   }
-  //echo '<br>postou no grupo<br>';
+  echo '<td>'. $gruporand .'</td>';
   //set_time_limit(25); 
   //sleep(10);
 
