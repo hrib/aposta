@@ -37,7 +37,7 @@ foreach ($graphNode['posts'] as $key => $value) {
 function PostClone(fb, message, link, picture){
   file_put_contents("image.jpg", file_get_contents($picture));
 
-  $page_access_token = 'CAAOYYpZCPyZB0BAJQJbaTZAeZAACAh2UHWAZC5JFWKWl9ZCAnz9HZBuhvgbSzzEkmiRJSLA76rB130UmFZAVX8oyOoAQJAZB6KzKnZCYb6tVh3El0yexuf92xOMn7u5wTME7dCAlUGrFb7l9BAO4iUitD1wUFgCXKUip3N03NTF4jQQjlrLVUIBhcIp0ZC74HY35Lzs3fDevH46LAZDZD';
+  $page_access_token = 'CAAOYYpZCPyZB0BAFOuSDDRfo5eZAkn8xNCzkwwmGZC5NCNgiDkq6vZACMOb6MeiQGPZCrVW82W1K83fVJZAMO7TLPSZAfSLrm6Q2aZCwqI5qmHeqE8u8GfzwrOxuk6cf8Gqe95VvvUwdjWMu4QnMp01YYzw1m1OZAERmZAiHUEm4HcyxBWXKLoNmXs2YRy2br2hbaIZD';
   $albumid = '1509106142644949';
   
   if (strpos($link, 'https://external') !== false) {
