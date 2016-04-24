@@ -42,7 +42,7 @@ foreach ($graphNode['ids'] as $key => $value) {
 echo var_dump $value['posts'];
 }
 foreach ($graphNode[0] as $key => $value) {
-echo var_dump $value;
+echo var_dump $value['posts'];
 }
 
 foreach ($graphNode['posts'] as $key => $value) {
