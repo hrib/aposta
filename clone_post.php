@@ -46,28 +46,31 @@ echo '<br>---<br>';
 //echo var_dump($graphNode['mblivre']);
 echo '<br>---<br>';
 //echo var_dump($graphNode[1]);
-foreach ($graphNode as $n) {
-echo var_dump($n);
-echo '<br>pula<br>';
-}
-echo '<br>aqui<br>';
-foreach ($graphNode['mblivre']['posts'] as $key => $value) {
-  echo '<br>' . $key . ':' . $value['message'] . '<br>';
-  echo '<br>' . $key . ':' . $value['link'] . '<br>';
-  echo '<br>' . $key . ':' . $value['full_picture'] . '<br>';
-  echo '<br>';
-  var_dump($value['created_time']); //precisa disso pra funcionar
-  $created_timeSTR = $value['created_time']->date;
-  $created_time = strtotime($created_timeSTR);  //unix
-  echo '<br>' . $key . ':' . $created_timeSTR . '<br>';
-  //echo '<br>time' . $key . ':' . $created_time . '<br>';
-  $tempo = time();
-  $diffunix = $tempo - $created_time;
-  echo '<br> diff tempo:' . $diffunix . '<br>';
-  if($diffunix < 3600){
-    PostClone($fb, $myalbumid, $mypageid, $page_access_token, $value['message'], $value['link'], $value['full_picture']);
-  }
-  echo '<br>________________________________<br>';
+//foreach ($graphNode as $n) {
+//echo var_dump($n);
+//echo '<br>pula<br>';
+//}
+//echo '<br>aqui<br>';
+foreach ($graphNode as $pagina) {
+    //foreach ($graphNode['posts'] as $key => $value) {
+    foreach ($pagina['posts'] as $key => $value) {
+      echo '<br>' . $key . ':' . $value['message'] . '<br>';
+      echo '<br>' . $key . ':' . $value['link'] . '<br>';
+      echo '<br>' . $key . ':' . $value['full_picture'] . '<br>';
+      echo '<br>';
+      var_dump($value['created_time']); //precisa disso pra funcionar
+      $created_timeSTR = $value['created_time']->date;
+      $created_time = strtotime($created_timeSTR);  //unix
+      echo '<br>' . $key . ':' . $created_timeSTR . '<br>';
+      //echo '<br>time' . $key . ':' . $created_time . '<br>';
+      $tempo = time();
+      $diffunix = $tempo - $created_time;
+      echo '<br> diff tempo:' . $diffunix . '<br>';
+      if($diffunix < 3600){
+        PostClone($fb, $myalbumid, $mypageid, $page_access_token, $value['message'], $value['link'], $value['full_picture']);
+      }
+      echo '<br>________________________________<br>';
+    }
 }
 
 
