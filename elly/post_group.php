@@ -39,7 +39,7 @@ try {
 }
 echo '<br>postou no user<br>';
 $link_post = $response->id;
-echo $link_post . '<br>';
+echo var_dump($response) . '<br>';
 
 
 
