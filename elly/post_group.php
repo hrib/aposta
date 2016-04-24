@@ -19,6 +19,7 @@ $fb = new Facebook\Facebook([
 
 
 $response = $fb->get('/?ids='. $pageOriginal .'&fields=name,posts.limit(2){message,link,full_picture,created_time}');
+$graphNode = $response->getGraphNode();
 foreach ($graphNode as $pagina) {
     foreach ($pagina['posts'] as $key => $value) {
       echo '<tr>';
