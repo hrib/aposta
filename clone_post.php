@@ -41,17 +41,15 @@ echo '<br>---<br>';
 $graphNode = $response->getGraphNode();
 //echo var_dump($graphNode);
 echo '<br>---<br>';
-echo var_dump($graphNode['vempraruabrasil.org']);
+//echo var_dump($graphNode['vempraruabrasil.org']);
 echo '<br>---<br>';
-echo var_dump($graphNode['mblivre']);
+//echo var_dump($graphNode['mblivre']);
 echo '<br>---<br>';
-echo var_dump($graphNode[1]);
-//foreach ($graphNode['ids'] as $key => $value) {
-//echo var_dump($value['posts']);
-//}
-//foreach ($graphNode[0] as $key => $value) {
-//echo var_dump ($value['posts']);
-//}
+//echo var_dump($graphNode[1]);
+foreach ($graphNode as $n) {
+echo var_dump($n);
+echo '<br>pula<br>';
+}
 echo '<br>aqui<br>';
 foreach ($graphNode['mblivre']['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['message'] . '<br>';
