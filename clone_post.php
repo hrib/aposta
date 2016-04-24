@@ -25,6 +25,10 @@ $app_id = $row["id2"];
 $app_secret = $row["id3"];
 $page_access_token = $row["id4"];
 
+echo "<br>" . $app_id . "<br>";
+echo "<br>" . $app_secret . "<br>";
+echo "<br>" . $page_access_token . "<br>";
+
 $fb = new Facebook\Facebook([
   'app_id' => $app_id,
   'app_secret' => $app_secret,
