@@ -51,7 +51,7 @@ echo var_dump($graphNode['mblivre']);
 //echo var_dump ($value['posts']);
 //}
 echo '<br>aqui<br>';
-foreach ($graphNode['posts'] as $key => $value) {
+foreach ($graphNode['mblivre']['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['message'] . '<br>';
   echo '<br>' . $key . ':' . $value['link'] . '<br>';
   echo '<br>' . $key . ':' . $value['full_picture'] . '<br>';
