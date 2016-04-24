@@ -80,7 +80,8 @@ function PostClone($fb, $myalbumid, $mypageid, $page_access_token, $message, $li
       'message' => $message,
     ];
   }
-
+  echo '<br>' . $target . '<br>';
+  var_dump($linkData);
   try {
       $response = $fb->post($target, $linkData, $page_access_token);
   } catch(Facebook\Exceptions\FacebookResponseException $e) {
