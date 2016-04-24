@@ -8,7 +8,7 @@ function PostClone($fb, $myalbumid, $mypageid, $page_access_token, $message, $li
   //echo '<td>POSTANDO</td>';
   file_put_contents("image.jpg", file_get_contents($picture));
 
-  if (strpos($picture, 'https://scontent') !== false) {
+  if ((strpos($picture, 'https://scontent') !== false)  AND (strpos($link, '/videos/') == false)  ) {
     //imagem interna, posta como imagem
     echo '<td>Imagem interna</td>';
     $target = '/' . $myalbumid . '/photos';
@@ -17,7 +17,7 @@ function PostClone($fb, $myalbumid, $mypageid, $page_access_token, $message, $li
       'message' => $message,
     ];
   } else {
-    //imagem externa(link) ou sem imagem e link, posta link/nada
+    //imagem externa(link), video ou sem imagem e link, posta link/nada
     echo '<td>Link externo/nada</td>';
     $target = '/' . $mypageid . '/feed';
     $linkData = [
