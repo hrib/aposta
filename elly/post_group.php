@@ -43,7 +43,7 @@ $userNode = $response->getGraphUser();
 var_dump($userNode->getId());
 
 //echo var_dump($response) . '<br>';
-$link_post = $userNode->id;
+$link_post = $userNode['id'];
 echo $link_post . '<br>';
 
 
