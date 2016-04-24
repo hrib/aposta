@@ -29,9 +29,7 @@ $linkData = [
 ];
 
 try {
-//    $response = $fb->post('/Theballisonthetable/feed', $linkData, $page_access_token);
   $response = $fb->post('/' . $albumid . '/photos', $linkData, $access_token);
-
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
     echo 'Graph returned an error: ' . $e->getMessage();
     exit;
@@ -40,7 +38,10 @@ try {
     exit;
 }
 echo '<br>postou no user<br>';
-
+$link_post = $response['id'];
+echo $link_post;
+$link_post = $response->id;
+echo $link_post;
 
 
 
@@ -48,7 +49,7 @@ echo '<br>postou no user<br>';
 
 
 $linkData = [
-  'link' => 'https://www.facebook.com/photo.php?fbid=240112619710412&set=a.187737951614546.1073741828.100011350282019&type=3',
+  'link' => $link_post,
   'message' => 'teste2',
 ];
 
