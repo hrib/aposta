@@ -44,6 +44,8 @@ echo '<br>---<br>';
 echo var_dump($graphNode['vempraruabrasil.org']);
 echo '<br>---<br>';
 echo var_dump($graphNode['mblivre']);
+echo '<br>---<br>';
+echo var_dump($graphNode[1]);
 //foreach ($graphNode['ids'] as $key => $value) {
 //echo var_dump($value['posts']);
 //}
