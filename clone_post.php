@@ -30,7 +30,7 @@ foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>str' . $key . ':' . $created_timeSTR . '<br>';
   echo '<br>time' . $key . ':' . $created_time . '<br>';
   $tempo = time();
-  $diffunix = $tempo - $created_timeSTR;
+  $diffunix = $tempo - $created_time;
   //$curtime = gmdate(DATE_ISO8601, $tempo);
   //echo '<br> tempo:' . $tempo . '<br>';
   //echo '<br> curtime:' . $curtime . '<br>';
