@@ -3,7 +3,7 @@ session_start();
 require_once 'src/Facebook/autoload.php';
 
 $mypageid = '798157940318724';
-$myalbumid = '1509106142644949';
+$myalbumid = '801145170020001';
 $pageOriginal = 'jornaloglobo';
 
 
@@ -46,11 +46,10 @@ foreach ($graphNode['posts'] as $key => $value) {
   $tempo = time();
   $diffunix = $tempo - $created_time;
   echo '<br> diff tempo:' . $diffunix . '<br>';
-  echo '<br>________________________________<br>';
   if($diffunix < 3600){
     PostClone($fb, $value['message'], $value['link'], $value['full_picture']);
   }
-  
+  echo '<br>________________________________<br>';
 }
 
 
