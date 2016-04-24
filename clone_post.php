@@ -51,7 +51,7 @@ foreach ($graphNode['posts'] as $key => $value) {
   $diffunix = $tempo - $created_time;
   echo '<br> diff tempo:' . $diffunix . '<br>';
   if($diffunix < 3600){
-    PostClone($fb, $value['message'], $value['link'], $value['full_picture']);
+    PostClone($fb, $myalbumid, $mypageid, $page_access_token, $value['message'], $value['link'], $value['full_picture']);
   }
   echo '<br>________________________________<br>';
 }
@@ -61,7 +61,7 @@ function PostClone($fb, $myalbumid, $mypageid, $page_access_token, $message, $li
   
   echo '<br>.....POSTANDO......<br>';
   file_put_contents("image.jpg", file_get_contents($picture));
-  $page_access_token = 'CAAOYYpZCPyZB0BAE8kK4SDOHv2tTWFGfF81lo1WXf8TPFedcZA5FT44uUPogdN2DZB5QnbQcIPnZAXHVWkEmf4cQmNXVvAGFqpIHosQ2VIn7JAPxBJxLMTtL8inrJvuWAjvzf1yZAzMN2hgL1hdpxjNy1O6GbZCuTrZAESzwbR6tyJ2ciMIsa07ruhIF6VoZAg1QZD';
+  //$page_access_token = 'CAAOYYpZCPyZB0BAE8kK4SDOHv2tTWFGfF81lo1WXf8TPFedcZA5FT44uUPogdN2DZB5QnbQcIPnZAXHVWkEmf4cQmNXVvAGFqpIHosQ2VIn7JAPxBJxLMTtL8inrJvuWAjvzf1yZAzMN2hgL1hdpxjNy1O6GbZCuTrZAESzwbR6tyJ2ciMIsa07ruhIF6VoZAg1QZD';
 
   if (strpos($picture, 'https://scontent') !== false) {
     //imagem interna, posta como imagem
