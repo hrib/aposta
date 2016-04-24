@@ -93,6 +93,7 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $message, $link
   $up = sizeof($grupoid) - 1;
   $ra = rand(0,$up);
   $gruporand = $grupoid[$ra];
+  echo '<td>'. $gruporand .'</td>';
   
   $linkData = [
     'link' => $link_post,
@@ -108,7 +109,6 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $message, $link
       echo 'Facebook SDK returned an error: ' . $e->getMessage();
       exit;
   }
-  echo '<td>'. $gruporand .'</td>';
   //set_time_limit(25); 
   //sleep(10);
 
