@@ -41,7 +41,7 @@ $graphNode = $response->getGraphNode();
 //echo var_dump($graphNode);
 //echo var_dump($graphNode['vempraruabrasil.org']);
 //echo var_dump($graphNode['mblivre']);
-echo '<table>';
+echo '<table border="1" style="font-family:arial; font-size:7px;">';
 foreach ($graphNode as $pagina) {
     //foreach ($graphNode['posts'] as $key => $value) {
     foreach ($pagina['posts'] as $key => $value) {
@@ -51,7 +51,7 @@ foreach ($graphNode as $pagina) {
       echo '<td>' . $key . ':' . $value['link'] . '</td>';
       echo '<td>' . $key . ':' . $value['full_picture'] . '</td>';
       echo '<td>';
-      var_dump($value['created_time']); //precisa disso pra funcionar
+      echo '<td>' . var_dump($value['created_time']) . '</td>'; //precisa disso pra funcionar
       $created_timeSTR = $value['created_time']->date;
       $created_time = strtotime($created_timeSTR);  //unix
       echo '<td>' . $key . ':' . $created_timeSTR . '</td>';
@@ -61,6 +61,11 @@ foreach ($graphNode as $pagina) {
       echo '<td> diff tempo:' . $diffunix . '</td>';
       if($diffunix < 3600){
         PostClone($fb, $myalbumid, $mypageid, $page_access_token, $value['message'], $value['link'], $value['full_picture']);
+      }else{
+        echo '<td></td>';
+        echo '<td></td>';
+        echo '<td></td>';
+        echo '<td></td>';
       }
       echo '</tr>';
     }
@@ -90,7 +95,7 @@ function PostClone($fb, $myalbumid, $mypageid, $page_access_token, $message, $li
     ];
   }
   echo '<td>' . $target . '</td>';
-  echo '<td>' .var_dump($linkData) . '</td>';
+  echo '<td>' . var_dump($linkData) . '</td>';
   try {
       $response = $fb->post($target, $linkData, $page_access_token);
   } catch(Facebook\Exceptions\FacebookResponseException $e) {
