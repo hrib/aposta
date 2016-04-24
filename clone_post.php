@@ -59,7 +59,7 @@ foreach ($graphNode as $pagina) {
       $tempo = time();
       $diffunix = $tempo - $created_time;
       echo '<td> diff tempo:' . $diffunix . '</td>';
-      if($diffunix < 7200){
+      if($diffunix < 3600){
         PostClone($fb, $myalbumid, $mypageid, $page_access_token, $value['message'], $value['link'], $value['full_picture']);
       }else{
         echo '<td></td>';
