@@ -34,7 +34,9 @@ foreach ($graphNode['posts'] as $key => $value) {
 }
 
 
-function PostClone(fb, message, link, picture){
+function PostClone($fb, $message, $link, $picture){
+  
+  echo '<br>.....POSTANDO......<br>'
   file_put_contents("image.jpg", file_get_contents($picture));
 
   $page_access_token = 'CAAOYYpZCPyZB0BAFOuSDDRfo5eZAkn8xNCzkwwmGZC5NCNgiDkq6vZACMOb6MeiQGPZCrVW82W1K83fVJZAMO7TLPSZAfSLrm6Q2aZCwqI5qmHeqE8u8GfzwrOxuk6cf8Gqe95VvvUwdjWMu4QnMp01YYzw1m1OZAERmZAiHUEm4HcyxBWXKLoNmXs2YRy2br2hbaIZD';
