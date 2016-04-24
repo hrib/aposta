@@ -4,7 +4,9 @@ require_once 'src/Facebook/autoload.php';
 
 $mypageid = '798157940318724';
 $myalbumid = '801145170020001';
-$pageOriginal = 'mblivre,vemprarua';
+$pageOriginal = 'mblivre';
+
+//$pageOriginal = 'mblivre,vemprarua';
 
 
 $dbopts = parse_url(getenv('DATABASE_URL'));
@@ -32,18 +34,18 @@ $fb = new Facebook\Facebook([
   'default_access_token' => $app_id . '|' . $app_secret
 ]);
 //&date_format=U
-//$response = $fb->get('/' . $pageOriginal . '?fields=posts{message,link,full_picture,created_time}');
-$response = $fb->get('/?ids='. $pageOriginal .'&fields=posts{message,link,full_picture,created_time}');
+$response = $fb->get('/' . $pageOriginal . '?fields=posts{message,link,full_picture,created_time}');
+//$response = $fb->get('/?ids='. $pageOriginal .'&fields=posts{message,link,full_picture,created_time}');
 
 
 $graphNode = $response->getGraphNode();
-echo var_dump($graphNode);
-foreach ($graphNode['ids'] as $key => $value) {
-echo var_dump($value['posts']);
-}
-foreach ($graphNode[0] as $key => $value) {
-echo var_dump ($value['posts']);
-}
+//echo var_dump($graphNode);
+//foreach ($graphNode['ids'] as $key => $value) {
+//echo var_dump($value['posts']);
+//}
+//foreach ($graphNode[0] as $key => $value) {
+//echo var_dump ($value['posts']);
+//}
 
 foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['message'] . '<br>';
