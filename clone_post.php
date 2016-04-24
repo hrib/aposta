@@ -42,19 +42,21 @@ function PostClone($fb, $message, $link, $picture){
   $page_access_token = 'CAAOYYpZCPyZB0BAFOuSDDRfo5eZAkn8xNCzkwwmGZC5NCNgiDkq6vZACMOb6MeiQGPZCrVW82W1K83fVJZAMO7TLPSZAfSLrm6Q2aZCwqI5qmHeqE8u8GfzwrOxuk6cf8Gqe95VvvUwdjWMu4QnMp01YYzw1m1OZAERmZAiHUEm4HcyxBWXKLoNmXs2YRy2br2hbaIZD';
   $albumid = '1509106142644949';
   
-  if (strpos($link, 'https://external') !== false) {
-    //imagem externa(link), posta sem imagem
-    $target = '/Theballisonthetable/feed';
-    $linkData = [
-      'link' => $link,
-      'message' => message,
-    ];
-  }else{
-    //imagem da pagina, posta com imagem
+  if (strpos($picture, 'https://scontent') !== false) {
+    //imagem interna, posta como imagem
+    echo '<br>Imagem interna<br>';
     $target = '/' . $albumid . '/photos';
     $linkData = [
       'source' => $fb->fileToUpload('image.jpg'),
       'message' => $message,
+    ];
+  } else {
+    //imagem externa(link) ou sem imagem e link, posta link/nada
+    echo '<br>Link externo/nada<br>';
+    $target = '/Theballisonthetable/feed';
+    $linkData = [
+      'link' => $link,
+      'message' => message,
     ];
   }
 
