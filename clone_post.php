@@ -41,39 +41,40 @@ $graphNode = $response->getGraphNode();
 //echo var_dump($graphNode);
 //echo var_dump($graphNode['vempraruabrasil.org']);
 //echo var_dump($graphNode['mblivre']);
-
+echo '<table>';
 foreach ($graphNode as $pagina) {
     //foreach ($graphNode['posts'] as $key => $value) {
     foreach ($pagina['posts'] as $key => $value) {
-      echo '<br>' . $key . ':' . $pagina['name'] . '<br>';
-      echo '<br>' . $key . ':' . $value['message'] . '<br>';
-      echo '<br>' . $key . ':' . $value['link'] . '<br>';
-      echo '<br>' . $key . ':' . $value['full_picture'] . '<br>';
-      echo '<br>';
+      echo '<tr>';
+      echo '<td>' . $key . ':' . $pagina['name'] . '</td>';
+      echo '<td>' . $key . ':' . $value['message'] . '</td>';
+      echo '<td>' . $key . ':' . $value['link'] . '</td>';
+      echo '<td>' . $key . ':' . $value['full_picture'] . '</td>';
+      echo '<td>';
       var_dump($value['created_time']); //precisa disso pra funcionar
       $created_timeSTR = $value['created_time']->date;
       $created_time = strtotime($created_timeSTR);  //unix
-      echo '<br>' . $key . ':' . $created_timeSTR . '<br>';
+      echo '<td>' . $key . ':' . $created_timeSTR . '</td>';
       //echo '<br>time' . $key . ':' . $created_time . '<br>';
       $tempo = time();
       $diffunix = $tempo - $created_time;
-      echo '<br> diff tempo:' . $diffunix . '<br>';
+      echo '<td> diff tempo:' . $diffunix . '</td>';
       if($diffunix < 3600){
         PostClone($fb, $myalbumid, $mypageid, $page_access_token, $value['message'], $value['link'], $value['full_picture']);
       }
-      echo '<br>________________________________<br>';
+      echo '</tr>';
     }
 }
-
+echo '</table>';
 
 function PostClone($fb, $myalbumid, $mypageid, $page_access_token, $message, $link, $picture){
   
-  echo '<br>.....POSTANDO......<br>';
+  echo '<td>.....POSTANDO......</td>';
   file_put_contents("image.jpg", file_get_contents($picture));
 
   if (strpos($picture, 'https://scontent') !== false) {
     //imagem interna, posta como imagem
-    echo '<br>Imagem interna<br>';
+    echo '<td>Imagem interna</td>';
     $target = '/' . $myalbumid . '/photos';
     $linkData = [
       'source' => $fb->fileToUpload('image.jpg'),
@@ -81,15 +82,15 @@ function PostClone($fb, $myalbumid, $mypageid, $page_access_token, $message, $li
     ];
   } else {
     //imagem externa(link) ou sem imagem e link, posta link/nada
-    echo '<br>Link externo/nada<br>';
+    echo '<td>Link externo/nada</td>';
     $target = '/' . $mypageid . '/feed';
     $linkData = [
       'link' => $link,
       'message' => $message,
     ];
   }
-  echo '<br>' . $target . '<br><br>';
-  var_dump($linkData);
+  echo '<td>' . $target . '</td>';
+  echo '<td>' .var_dump($linkData) . '</td>';
   try {
       $response = $fb->post($target, $linkData, $page_access_token);
   } catch(Facebook\Exceptions\FacebookResponseException $e) {
