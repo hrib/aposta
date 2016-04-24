@@ -40,5 +40,5 @@ try {
     echo 'Facebook SDK returned an error: ' . $e->getMessage();
     exit;
 }
-
+echo 'fim';
 ?>
