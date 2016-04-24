@@ -34,26 +34,18 @@ $fb = new Facebook\Facebook([
 ]);
 //&date_format=U
 //$response = $fb->get('/' . $pageOriginal . '?fields=posts{message,link,full_picture,created_time}');
-$response = $fb->get('/?ids='. $pageOriginal .'&fields=posts{message,link,full_picture,created_time}');
+$response = $fb->get('/?ids='. $pageOriginal .'&fields=name,posts{message,link,full_picture,created_time}');
+$graphNode = $response->getGraphNode();
 
 //echo var_dump($response);
-echo '<br>---<br>';
-$graphNode = $response->getGraphNode();
 //echo var_dump($graphNode);
-echo '<br>---<br>';
 //echo var_dump($graphNode['vempraruabrasil.org']);
-echo '<br>---<br>';
 //echo var_dump($graphNode['mblivre']);
-echo '<br>---<br>';
-//echo var_dump($graphNode[1]);
-//foreach ($graphNode as $n) {
-//echo var_dump($n);
-//echo '<br>pula<br>';
-//}
-//echo '<br>aqui<br>';
+
 foreach ($graphNode as $pagina) {
     //foreach ($graphNode['posts'] as $key => $value) {
     foreach ($pagina['posts'] as $key => $value) {
+      echo '<br>' . $key . ':' . $pagina['name'] . '<br>';
       echo '<br>' . $key . ':' . $value['message'] . '<br>';
       echo '<br>' . $key . ':' . $value['link'] . '<br>';
       echo '<br>' . $key . ':' . $value['full_picture'] . '<br>';
