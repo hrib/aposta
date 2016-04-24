@@ -8,7 +8,7 @@ $app_secret = '5abc1d036bf115bb722115e436ad5f6b';
 $access_token = 'EAAMbDSuNoZBUBAFQlIs4qKKn0VYIPB2eH36bZBSSyt6787TuFSWPHZAcd2RE2KAtpcBsc8oy7cPyO6lOXEsvcvyySsfojeE6o7x8YHGqBKyAZAEeDC1GSDqRdXKVYSvR97rpmvxX9pvYi7xkJapycq84ZC5ZBhVUYZD';
 $myalbumid = '187737951614546';
 
-$groupid = array("211312725908106", "643876078994477", "766144473504153", "httws");
+$groupid = array("211312725908106", "643876078994477", "766144473504153", "533742183475237");
 $pages_to_copy = array('Anonimasgostosasbr','804933709548543','GostosaD');
 $rb = rand(0,2);
 $rc = rand(0,2);
@@ -83,6 +83,7 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $message, $link
       echo 'Facebook SDK returned an error: ' . $e->getMessage();
       exit;
   }
+  sleep(5);
   //echo '<br>postou no user<br>';
   
   $userNode = $response->getGraphUser();
@@ -109,8 +110,8 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $message, $link
       echo 'Facebook SDK returned an error: ' . $e->getMessage();
       exit;
   }
-  //set_time_limit(25); 
-  //sleep(10);
+  set_time_limit(25); 
+  sleep(10);
 
   
 }
