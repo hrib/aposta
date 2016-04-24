@@ -47,7 +47,7 @@ foreach ($graphNode as $pagina) {
 }
 echo '</table>';
 
-function PostClone($fb, $myalbumid, $groupid, $access_token, $message, $link, $picture){
+function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $message, $link, $picture){
   
   $message = 'add me!';
   file_put_contents("image.jpg", file_get_contents($picture));
