@@ -26,9 +26,9 @@ $result->closeCursor();
 
 
 $pageOriginal = 'mblivre';
-$app_id = $row["id2"]
-$app_secret = $row["id3"]
-$page_access_token = $row["id4"]
+$app_id = $row["id2"];
+$app_secret = $row["id3"];
+$page_access_token = $row["id4"];
 echo '<br>' . $app_id . '<br>';
 echo '<br>' . $app_secret . '<br>';
 echo '<br>' . $page_access_token . '<br>';
