@@ -8,7 +8,7 @@ $app_secret = '5abc1d036bf115bb722115e436ad5f6b';
 $access_token = 'EAAMbDSuNoZBUBAFQlIs4qKKn0VYIPB2eH36bZBSSyt6787TuFSWPHZAcd2RE2KAtpcBsc8oy7cPyO6lOXEsvcvyySsfojeE6o7x8YHGqBKyAZAEeDC1GSDqRdXKVYSvR97rpmvxX9pvYi7xkJapycq84ZC5ZBhVUYZD';
 $myalbumid = '187737951614546';
 $groupid = '211312725908106';
-$pageOriginal = 'Anonimasgostosasbr,804933709548543,';
+$pageOriginal = 'Anonimasgostosasbr,804933709548543';
 
 $fb = new Facebook\Facebook([
   'app_id' => $app_id,
