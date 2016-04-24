@@ -88,8 +88,8 @@ function PostClone($fb, $myalbumid, $mypageid, $page_access_token, $message, $li
       exit;
   }
  
-  set_time_limit(90); 
-  sleep(60);
+  set_time_limit(25); 
+  sleep(10);
   
 }
 
