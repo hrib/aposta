@@ -2,10 +2,10 @@
 session_start();
 require_once 'src/Facebook/autoload.php';
 
-$mypageid = '798157940318724';
-$myalbumid = '801145170020001';
+$mypageid = 'TheBallisonthetable';
+$myalbumid = '1509106142644949';
 //$pageOriginal = 'mblivre';
-$pageOriginal = 'mblivre,vempraruabrasil.org,140140766087925,endireitabrasil';
+$pageOriginal = 'FuteDaDepressao,LibertadoresDaDepressao,RIPfutebolclube,humoresportivonaarea';
 
 
 $dbopts = parse_url(getenv('DATABASE_URL'));
@@ -17,7 +17,7 @@ $dsn = "pgsql:"
     . "sslmode=require;"
     . "password=" . $dbopts["pass"];
 $db = new PDO($dsn);
-$query = "SELECT id1, id2, id3, id4 FROM dados WHERE id1 = 'brasilreal'";
+$query = "SELECT id1, id2, id3, id4 FROM dados WHERE id1 = 'theball'";
 $result = $db->query($query);
 $row = $result->fetch(PDO::FETCH_ASSOC);
 $result->closeCursor();
