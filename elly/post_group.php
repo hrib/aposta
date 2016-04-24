@@ -90,10 +90,10 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $message, $link
   $link_post = 'https://www.facebook.com/' . $userNode['id'];
   //echo $link_post . '<br>';
   
-  $up = sizeof($grupoid) - 1;
+  $up = sizeof($groupid) - 1;
   $ra = rand(0,$up);
-  $gruporand = $grupoid[$ra];
-  echo '<td>'. $gruporand .'</td>';
+  $group_rand = $groupid[$ra];
+  echo '<td>'. $group_rand .'</td>';
   
   $linkData = [
     'link' => $link_post,
@@ -101,7 +101,7 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $message, $link
   ];
   
   try {
-    $response = $fb->post('/' . $grouprand . '/feed', $linkData, $access_token);
+    $response = $fb->post('/' . $group_rand . '/feed', $linkData, $access_token);
   } catch(Facebook\Exceptions\FacebookResponseException $e) {
       echo 'Graph returned an error: ' . $e->getMessage();
       exit;
