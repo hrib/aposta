@@ -40,14 +40,9 @@ try {
 echo '<br>postou no user<br>';
 
 $userNode = $response->getGraphUser();
-var_dump($userNode->getId());
-
-//echo var_dump($response) . '<br>';
-$link_post = $userNode['id'];
+//var_dump($userNode->getId());
+$link_post = 'https://www.facebook.com/' . $userNode['id'];
 echo $link_post . '<br>';
-
-
-
 
 
 $linkData = [
