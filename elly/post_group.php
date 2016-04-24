@@ -12,7 +12,7 @@ require_once '../src/Facebook/autoload.php';
 
 $app_id = '874168309359589';
 $app_secret = '5abc1d036bf115bb722115e436ad5f6b';
-$access_token = 'EAAMbDSuNoZBUBAH8TG7atHewGb13hYSd63B6RhGC5Ra69kU9fsIl1xCbxxz8aZBFED1ydfXrFxUwcgMExAFJe9Lv31wKAk1t8UgQIXh1ub1o24u7OnOWjal0xcdIYqi3EnSupTwZAd5CsF86bQr7JdR2DbrSU1uFFkXjhzT8AZDZD';
+$access_token = 'EAAMbDSuNoZBUBAFQlIs4qKKn0VYIPB2eH36bZBSSyt6787TuFSWPHZAcd2RE2KAtpcBsc8oy7cPyO6lOXEsvcvyySsfojeE6o7x8YHGqBKyAZAEeDC1GSDqRdXKVYSvR97rpmvxX9pvYi7xkJapycq84ZC5ZBhVUYZD';
 $albumid = '187737951614546';
 
 $fb = new Facebook\Facebook([
@@ -27,7 +27,7 @@ $fb = new Facebook\Facebook([
   //  'image' => 'http://apostagol.herokuapp.com/image.jpg',
 $linkData = [
   'source' => $fb->fileToUpload('image.jpg'),
-  'message' => 'teste',
+  'message' => 'teste2',
 ];
 
 try {
