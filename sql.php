@@ -29,7 +29,7 @@ echo var_dump($result);
 echo 'aqui<br><br>';
 
 $query = "INSERT INTO dados (id1, id2, id3, id4) VALUES"
-    . "('brasilreal', '1011974285544429', '9b28ee403af9889f18c3fd6f3b9135c8', 'CAAOYYpZCPyZB0BAFOuSDDRfo5eZAkn8xNCzkwwmGZC5NCNgiDkq6vZACMOb6MeiQGPZCrVW82W1K83fVJZAMO7TLPSZAfSLrm6Q2aZCwqI5qmHeqE8u8GfzwrOxuk6cf8Gqe95VvvUwdjWMu4QnMp01YYzw1m1OZAERmZAiHUEm4HcyxBWXKLoNmXs2YRy2br2hbaIZD'),"
+    . "('brasilreal', 'xxx', 'xxx', 'xxx'),"
     . "('theball', 'xxxx', 'xxx', 'xxxx'),"
     . "('xxx', 'xxxx', 'xxx', 'xx');";
 $result = $db->query($query);
