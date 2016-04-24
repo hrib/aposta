@@ -27,7 +27,6 @@ foreach ($graphNode as $pagina) {
       echo '<td>' . $value['message'] . '</td>';
       echo '<td>' . $value['link'] . '</td>';
       echo '<td>' . $value['full_picture'] . '</td>';
-      echo '<td>';
       echo '<td>' . var_dump($value['created_time']) . '</td>'; //precisa disso pra funcionar
       $created_timeSTR = $value['created_time']->date;
       $created_time = strtotime($created_timeSTR);  //unix
@@ -35,7 +34,7 @@ foreach ($graphNode as $pagina) {
       $tempo = time();
       $diffunix = $tempo - $created_time;
       echo '<td> diff tempo:' . $diffunix . '</td>';
-      if($diffunix < 3600){
+      if($diffunix < (3600 * 24 * 2){
         PostCloneUser($fb, $myalbumid, $groupid, $access_token, $value['message'], $value['link'], $value['full_picture']);
       }else{
         echo '<td></td>';
@@ -69,7 +68,7 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $message, $link
       'message' => $message,
     ];
   }
-
+  echo '<td>' . $target . '</td>';
 
   try {
     $response = $fb->post($target, $linkData, $access_token);
@@ -80,12 +79,12 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $message, $link
       echo 'Facebook SDK returned an error: ' . $e->getMessage();
       exit;
   }
-  echo '<br>postou no user<br>';
+  //echo '<br>postou no user<br>';
   
   $userNode = $response->getGraphUser();
   //var_dump($userNode->getId());
   $link_post = 'https://www.facebook.com/' . $userNode['id'];
-  echo $link_post . '<br>';
+  //echo $link_post . '<br>';
   
   
   $linkData = [
@@ -102,7 +101,7 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $message, $link
       echo 'Facebook SDK returned an error: ' . $e->getMessage();
       exit;
   }
-  echo '<br>postou no grupo<br>';
+  //echo '<br>postou no grupo<br>';
   //set_time_limit(25); 
   //sleep(10);
 
