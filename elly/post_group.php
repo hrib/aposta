@@ -53,7 +53,7 @@ $linkData = [
 ];
 
 try {
-  $response = $fb->post('/groups/' . $groupid . '/', $linkData, $access_token);
+  $response = $fb->post('/' . $groupid . '/feed', $linkData, $access_token);
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
     echo 'Graph returned an error: ' . $e->getMessage();
     exit;
