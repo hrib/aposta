@@ -87,7 +87,8 @@ function PostClone($fb, $myalbumid, $mypageid, $page_access_token, $message, $li
       echo 'Facebook SDK returned an error: ' . $e->getMessage();
       exit;
   }
-
+ 
+  set_time_limit(90); 
   sleep(60);
   
 }
