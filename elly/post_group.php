@@ -38,10 +38,8 @@ try {
     exit;
 }
 echo '<br>postou no user<br>';
-$link_post = $response['id'];
-echo $link_post;
 $link_post = $response->id;
-echo $link_post;
+echo $link_post . '<br>';
 
 
 
