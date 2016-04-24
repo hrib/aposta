@@ -5,7 +5,7 @@ require_once 'src/Facebook/autoload.php';
 $mypageid = '798157940318724';
 $myalbumid = '801145170020001';
 //$pageOriginal = 'mblivre';
-$pageOriginal = 'mblivre,vempraruabrasil.org';
+$pageOriginal = 'mblivre,vempraruabrasil.org,140140766087925,endireitabrasil';
 
 
 $dbopts = parse_url(getenv('DATABASE_URL'));
@@ -34,7 +34,7 @@ $fb = new Facebook\Facebook([
 ]);
 //&date_format=U
 //$response = $fb->get('/' . $pageOriginal . '?fields=posts{message,link,full_picture,created_time}');
-$response = $fb->get('/?ids='. $pageOriginal .'&fields=name,posts{message,link,full_picture,created_time}');
+$response = $fb->get('/?ids='. $pageOriginal .'&fields=name,posts.limit(5){message,link,full_picture,created_time}');
 $graphNode = $response->getGraphNode();
 
 //echo var_dump($response);
