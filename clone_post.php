@@ -43,7 +43,7 @@ echo var_dump($graphNode);
 echo '<br>---<br>';
 echo var_dump($graphNode->posts);
 echo '<br>---<br>';
-echo var_dump($graphNode->mblivre);
+echo var_dump($graphNode['mblivre']);
 //foreach ($graphNode['ids'] as $key => $value) {
 //echo var_dump($value['posts']);
 //}
