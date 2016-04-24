@@ -18,6 +18,7 @@ foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['message'] . '<br>';
   echo '<br>' . $key . ':' . $value['link'] . '<br>';
   echo '<br>' . $key . ':' . $value['full_picture'] . '<br>';
+  echo var_dump($value['created_time']);
   echo var_dump($value['created_time']->date);
   $created_timeSTR = $value['created_time']->date;
   echo var_dump($created_timeSTR);
