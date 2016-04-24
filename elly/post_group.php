@@ -33,7 +33,7 @@ $linkData = [
 try {
 //    $response = $fb->post('/Theballisonthetable/feed', $linkData, $page_access_token);
     //$response = $fb->post('/' . $albumid . '/photos', $linkData, $access_token);
-$response = $fb->post('/groups/211312725908106/photos/', $linkData, $access_token);
+$response = $fb->post('/groups/211312725908106/photos', $linkData, $access_token);
 
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
     echo 'Graph returned an error: ' . $e->getMessage();
