@@ -72,7 +72,7 @@ foreach ($graphNode as $pagina) {
 }
 echo '</table>';
 
-function PostClone($fb, $myalbumid, $mypageid, $page_access_token, $message, $link, $picture){
+function PostClonezzzzzzz($fb, $myalbumid, $mypageid, $page_access_token, $message, $link, $picture){
   
   //echo '<td>POSTANDO</td>';
   file_put_contents("image.jpg", file_get_contents($picture));
