@@ -29,8 +29,8 @@ echo var_dump($result);
 echo 'aqui<br><br>';
 
 $query = "INSERT INTO dados (id1, id2, id3, id4) VALUES"
-    . "('brasilreal', '1011974285544429', '9b28ee403af9889f18c3fd6f3b9135c8', 'CAAOYYpZCPyZB0BADOeUcJtI94u9wZAvBPZAzz7be9DqZBBUxM1857DZCAi4WSX4VOhViZAJ5WMs7GoEp9fZC9k4NZBxH7ZBwIAW8JkFqNzbgN7ZB0a0cieHuIBwXfPAQlXFfuYoUZAEdLGqVQ6E3MGwmcpXJt8ycQUPcZCvPznY5RXSQAxhsKsCwZA50IN4ZByoEHZAiCLBHKEVprRZA5lwZDZD'),"
-    . "('theball', '1011974285544429', '9b28ee403af9889f18c3fd6f3b9135c8', 'CAAOYYpZCPyZB0BANxJjtAtka6YZBaxB04IRK9pNYZC0VRLZCREZClhw3gXE0MZBaqZA6e7XAc8ZBZAL5exukNJVThSWVLtx1ZA7In8zc6idDIIlmcHhHnGzm3cbRDsApZBqmyNz7aDTAmlCSGCdzLZBanxZAvLRSiLTfK7jZBRPIYA9uyRNQ5H2mjetwgv0PcBDnZCnn4kHPwjbo7lvfXwZDZD'),"
+    . "('brasilreal', 'xxx', 'xxx', 'xxxxx'),"
+    . "('theball', 'xxxx', 'xxx', 'xxxx'),"
     . "('xxx', 'xxxx', 'xxx', 'xx');";
 $result = $db->query($query);
 echo var_dump($result);
