@@ -4,7 +4,7 @@ require_once 'src/Facebook/autoload.php';
 
 $mypageid = '798157940318724';
 $myalbumid = '801145170020001';
-$pageOriginal = 'jornaloglobo';
+$pageOriginal = 'mblivre';
 
 
 $dbopts = parse_url(getenv('DATABASE_URL'));
