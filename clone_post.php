@@ -5,7 +5,7 @@ require_once 'src/Facebook/autoload.php';
 $mypageid = '798157940318724';
 $myalbumid = '801145170020001';
 //$pageOriginal = 'mblivre';
-$pageOriginal = 'mblivre,vemprarua.org';
+$pageOriginal = 'mblivre,vempraruabrasil.org';
 
 
 $dbopts = parse_url(getenv('DATABASE_URL'));
@@ -41,7 +41,7 @@ echo '<br>---<br>';
 $graphNode = $response->getGraphNode();
 //echo var_dump($graphNode);
 echo '<br>---<br>';
-echo var_dump($graphNode['vemprarua.org']);
+echo var_dump($graphNode['vempraruabrasil.org']);
 echo '<br>---<br>';
 echo var_dump($graphNode['mblivre']);
 //foreach ($graphNode['ids'] as $key => $value) {
