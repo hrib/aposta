@@ -2,6 +2,10 @@
 session_start();
 require_once 'src/Facebook/autoload.php';
 
+$mypageid = '798157940318724';
+$myalbumid = '1509106142644949';
+$pageOriginal = 'mblivre';
+
 
 $dbopts = parse_url(getenv('DATABASE_URL'));
 $dsn = "pgsql:"
@@ -14,28 +18,13 @@ $dsn = "pgsql:"
 $db = new PDO($dsn);
 $query = "SELECT id1, id2, id3, id4 FROM dados WHERE id1 = 'brasilreal'";
 $result = $db->query($query);
-echo var_dump($result);
-
 $row = $result->fetch(PDO::FETCH_ASSOC);
-//echo "<br>" . $row["id1"] . "<br>";
 $result->closeCursor();
 
-
-
-
-
-
-$pageOriginal = 'mblivre';
 $app_id = $row["id2"];
 $app_secret = $row["id3"];
 $page_access_token = $row["id4"];
-echo '<br>' . $app_id . '<br>';
-echo '<br>' . $app_secret . '<br>';
-echo '<br>' . $page_access_token . '<br>';
-//$app_id = '1011974285544429';
-//$app_secret = '9b28ee403af9889f18c3fd6f3b9135c8';
-//$page_access_token = 'CAAOYYpZCPyZB0BAFOuSDDRfo5eZAkn8xNCzkwwmGZC5NCNgiDkq6vZACMOb6MeiQGPZCrVW82W1K83fVJZAMO7TLPSZAfSLrm6Q2aZCwqI5qmHeqE8u8GfzwrOxuk6cf8Gqe95VvvUwdjWMu4QnMp01YYzw1m1OZAERmZAiHUEm4HcyxBWXKLoNmXs2YRy2br2hbaIZD';
-  
+
 $fb = new Facebook\Facebook([
   'app_id' => $app_id,
   'app_secret' => $app_secret,
@@ -65,17 +54,15 @@ foreach ($graphNode['posts'] as $key => $value) {
 }
 
 
-function PostClone($fb, $page_access_token, $message, $link, $picture){
+function PostClone($fb, $myalbumid, $mypageid, $page_access_token, $message, $link, $picture){
   
   echo '<br>.....POSTANDO......<br>';
   file_put_contents("image.jpg", file_get_contents($picture));
 
-  $albumid = '1509106142644949';
-  
   if (strpos($picture, 'https://scontent') !== false) {
     //imagem interna, posta como imagem
     echo '<br>Imagem interna<br>';
-    $target = '/' . $albumid . '/photos';
+    $target = '/' . $myalbumid . '/photos';
     $linkData = [
       'source' => $fb->fileToUpload('image.jpg'),
       'message' => $message,
@@ -83,7 +70,7 @@ function PostClone($fb, $page_access_token, $message, $link, $picture){
   } else {
     //imagem externa(link) ou sem imagem e link, posta link/nada
     echo '<br>Link externo/nada<br>';
-    $target = '/Theballisonthetable/feed';
+    $target = '/' . $mypageid . '/feed';
     $linkData = [
       'link' => $link,
       'message' => $message,
