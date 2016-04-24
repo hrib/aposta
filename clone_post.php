@@ -36,8 +36,11 @@ $fb = new Facebook\Facebook([
 //$response = $fb->get('/' . $pageOriginal . '?fields=posts{message,link,full_picture,created_time}');
 $response = $fb->get('/?ids='. $pageOriginal .'&fields=posts{message,link,full_picture,created_time}');
 
-
+echo var_dump($response);
+echo '<br>---<br>';
 $graphNode = $response->getGraphNode();
+echo var_dump($graphNode);
+echo '<br>---<br>';
 echo var_dump($graphNode->posts);
 echo '<br>---<br>';
 echo var_dump($graphNode->mblivre);
