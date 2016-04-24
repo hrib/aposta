@@ -47,9 +47,9 @@ foreach ($graphNode as $pagina) {
     foreach ($pagina['posts'] as $key => $value) {
       echo '<tr>';
       echo '<td>' . $key . ':' . $pagina['name'] . '</td>';
-      echo '<td>' . $key . ':' . $value['message'] . '</td>';
-      echo '<td>' . $key . ':' . $value['link'] . '</td>';
-      echo '<td>' . $key . ':' . $value['full_picture'] . '</td>';
+      echo '<td>' . $value['message'] . '</td>';
+      echo '<td>' . $value['link'] . '</td>';
+      echo '<td>' . $value['full_picture'] . '</td>';
       echo '<td>';
       echo '<td>' . var_dump($value['created_time']) . '</td>'; //precisa disso pra funcionar
       $created_timeSTR = $value['created_time']->date;
@@ -64,8 +64,8 @@ foreach ($graphNode as $pagina) {
       }else{
         echo '<td></td>';
         echo '<td></td>';
-        echo '<td></td>';
-        echo '<td></td>';
+        //echo '<td></td>';
+        //echo '<td></td>';
       }
       echo '</tr>';
     }
@@ -74,7 +74,7 @@ echo '</table>';
 
 function PostClone($fb, $myalbumid, $mypageid, $page_access_token, $message, $link, $picture){
   
-  echo '<td>POSTANDO</td>';
+  //echo '<td>POSTANDO</td>';
   file_put_contents("image.jpg", file_get_contents($picture));
 
   if (strpos($picture, 'https://scontent') !== false) {
@@ -94,7 +94,7 @@ function PostClone($fb, $myalbumid, $mypageid, $page_access_token, $message, $li
       'message' => $message,
     ];
   }
-  echo '<td></td>';
+  //echo '<td></td>';
   echo '<td>' . $target . '</td>'; //target
   try {
       $response = $fb->post($target, $linkData, $page_access_token);
