@@ -48,7 +48,7 @@ echo '<br>postou no user<br>';
 
 
 $linkData = [
-  'link' => 'https://scontent-lhr3-1.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/12804656_152766121778396_2102593346909812311_n.jpg?oh=1c9f0cb5f2958ad2c726c0ce55f13d85&oe=57760A9B',
+  'link' => 'https://www.facebook.com/photo.php?fbid=240112619710412&set=a.187737951614546.1073741828.100011350282019&type=3',
   'message' => 'teste2',
 ];
 
