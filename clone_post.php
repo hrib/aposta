@@ -27,8 +27,49 @@ foreach ($graphNode['posts'] as $key => $value) {
   $diffunix = $tempo - $created_time;
   echo '<br> diff tempo:' . $diffunix . '<br>';
   echo '<br>________________________________<br>';
+  if($diffunix < 3600){
+    PostClone($fb, $value['message'], $value['link'], $value['full_picture']);
+  }
+  
 }
 
+
+function PostClone(fb, message, link, picture){
+  file_put_contents("image.jpg", file_get_contents($picture));
+
+  $page_access_token = 'CAAOYYpZCPyZB0BAJQJbaTZAeZAACAh2UHWAZC5JFWKWl9ZCAnz9HZBuhvgbSzzEkmiRJSLA76rB130UmFZAVX8oyOoAQJAZB6KzKnZCYb6tVh3El0yexuf92xOMn7u5wTME7dCAlUGrFb7l9BAO4iUitD1wUFgCXKUip3N03NTF4jQQjlrLVUIBhcIp0ZC74HY35Lzs3fDevH46LAZDZD';
+  $albumid = '1509106142644949';
+  
+  if (strpos($link, 'https://external') !== false) {
+    //imagem externa(link), posta sem imagem
+    $target = '/Theballisonthetable/feed';
+    $linkData = [
+      'link' => $link,
+      'message' => message,
+    ];
+  }else{
+    //imagem da pagina, posta com imagem
+    $target = '/' . $albumid . '/photos';
+    $linkData = [
+      'source' => $fb->fileToUpload('image.jpg'),
+      'message' => $message,
+    ];
+  }
+
+  try {
+      $response = $fb->post($target, $linkData, $page_access_token);
+  } catch(Facebook\Exceptions\FacebookResponseException $e) {
+      echo 'Graph returned an error: ' . $e->getMessage();
+      exit;
+  } catch(Facebook\Exceptions\FacebookSDKException $e) {
+      echo 'Facebook SDK returned an error: ' . $e->getMessage();
+      exit;
+  }
+
+
+  
+  
+}
 
 
 ?>
