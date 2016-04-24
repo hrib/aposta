@@ -25,10 +25,6 @@ $app_id = $row["id2"];
 $app_secret = $row["id3"];
 $page_access_token = $row["id4"];
 
-echo "<br>" . $app_id . "<br>";
-echo "<br>" . $app_secret . "<br>";
-echo "<br>" . $page_access_token . "<br>";
-
 $fb = new Facebook\Facebook([
   'app_id' => $app_id,
   'app_secret' => $app_secret,
@@ -42,6 +38,7 @@ foreach ($graphNode['posts'] as $key => $value) {
   echo '<br>' . $key . ':' . $value['message'] . '<br>';
   echo '<br>' . $key . ':' . $value['link'] . '<br>';
   echo '<br>' . $key . ':' . $value['full_picture'] . '<br>';
+  echo '<br>';
   var_dump($value['created_time']); //precisa disso pra funcionar
   $created_timeSTR = $value['created_time']->date;
   $created_time = strtotime($created_timeSTR);  //unix
@@ -61,7 +58,6 @@ function PostClone($fb, $myalbumid, $mypageid, $page_access_token, $message, $li
   
   echo '<br>.....POSTANDO......<br>';
   file_put_contents("image.jpg", file_get_contents($picture));
-  //$page_access_token = 'CAAOYYpZCPyZB0BAE8kK4SDOHv2tTWFGfF81lo1WXf8TPFedcZA5FT44uUPogdN2DZB5QnbQcIPnZAXHVWkEmf4cQmNXVvAGFqpIHosQ2VIn7JAPxBJxLMTtL8inrJvuWAjvzf1yZAzMN2hgL1hdpxjNy1O6GbZCuTrZAESzwbR6tyJ2ciMIsa07ruhIF6VoZAg1QZD';
 
   if (strpos($picture, 'https://scontent') !== false) {
     //imagem interna, posta como imagem
@@ -80,7 +76,7 @@ function PostClone($fb, $myalbumid, $mypageid, $page_access_token, $message, $li
       'message' => $message,
     ];
   }
-  echo '<br>' . $target . '<br>';
+  echo '<br>' . $target . '<br><br>';
   var_dump($linkData);
   try {
       $response = $fb->post($target, $linkData, $page_access_token);
@@ -92,8 +88,7 @@ function PostClone($fb, $myalbumid, $mypageid, $page_access_token, $message, $li
       exit;
   }
 
-
-  
+  sleep(60);
   
 }
 
