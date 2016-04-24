@@ -14,6 +14,15 @@ $dsn = "pgsql:"
     . "port=5432;"
     . "sslmode=require;"
     . "password=1xYS19qztYiYuSdUBhuKDBQ6K1";
+    
+$dsn = "pgsql:"
+    . "host=" . $dbopts["host"] . ";"
+    . "dbname=". ltrim($dbopts["path"],'/') . ";"
+    . "user=" . $dbopts["user"] . ";"
+    . "port=" . $dbopts["port"] . ";"
+    . "sslmode=require;"
+    . "password=" . $dbopts["pass"];
+    
 
 $db = new PDO($dsn);
 
