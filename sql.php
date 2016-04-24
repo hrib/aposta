@@ -17,11 +17,16 @@ $dsn = "pgsql:"
 
 $db = new PDO($dsn);
 
+$query = "DROP TABLE dados";
+$result = $db->query($query);
+echo var_dump($result);
+echo 'aqui<br><br>';
+
 $query = "CREATE TABLE dados ("
     . "id1 VARCHAR(30),"
     . "id2 VARCHAR(30),"
-    . "id3 VARCHAR(30),"
-    . "id4 VARCHAR(50)"
+    . "id3 VARCHAR(50),"
+    . "id4 VARCHAR(250)"
     . ");";
 $result = $db->query($query);
 echo var_dump($result);
@@ -35,8 +40,7 @@ $result = $db->query($query);
 echo var_dump($result);
 echo 'aqui<br><br>';
 
-$query = "SELECT employee_id, last_name, first_name, title "
-    . "FROM employees ORDER BY last_name ASC, first_name ASC";
+$query = "SELECT id1, id2, id3, id4 FROM dados";
 $result = $db->query($query);
 echo var_dump($result);
 echo 'aqui<br><br>';
@@ -44,10 +48,10 @@ echo 'aqui<br><br>';
 echo "<table>";
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     echo "<tr>";
-    echo "<td>" . $row["employee_id"] . "</td>";
-    echo "<td>" . htmlspecialchars($row["last_name"]) . "</td>";
-    echo "<td>" . htmlspecialchars($row["first_name"]) . "</td>";
-    echo "<td>" . htmlspecialchars($row["title"]) . "</td>";
+    echo "<td>" . $row["id1"] . "</td>";
+    echo "<td>" . htmlspecialchars($row["id2"]) . "</td>";
+    echo "<td>" . htmlspecialchars($row["id3"]) . "</td>";
+    echo "<td>" . htmlspecialchars($row["id4"]) . "</td>";
     echo "</tr>";
 }
 echo "</table>";
