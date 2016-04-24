@@ -8,7 +8,7 @@ file_put_contents("image.jpg", file_get_contents($imgurl));
 //echo "<img src='image.jpg'>";
 
 
-require_once 'src/Facebook/autoload.php';
+require_once '../src/Facebook/autoload.php';
 echo '<br>2<br>';
 $app_id = '874168309359589';
 $app_secret = '5abc1d036bf115bb722115e436ad5f6b';
