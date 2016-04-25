@@ -56,10 +56,10 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $bingurl){
   
   $textos = array("oi! Add?", "add ou follow?", "adiciona ou segue?", "adiciona?", "me segue", "follow me", "quem me add?", "quem me segue?", "oi! Add? :) ", "add ou follow? :) ", "adiciona ou segue? :) ", "adiciona? :) ", "me segue :) ", "follow me :) ", "quem me add? :) ", "quem me segue? :) ", "oi! Add? :* ", "add ou follow? :* ", "adiciona ou segue? :* ", "adiciona? :* ", "me segue :* ", "follow me :* ", "quem me add? :* ", "quem me segue? :* "); 
   $message = $textos[rand(0,sizeof($textos)-1)];
-  //file_put_contents("image.jpg", file_get_contents($bingurl));
+  file_put_contents("image.jpg", $bingurl);
   $target = '/' . $myalbumid . '/photos';
   $linkData = [
-    'source' => $fb->fileToUpload($bingurl),
+    'source' => $fb->fileToUpload('image.jpg'),
     'message' => $message,
   ];
 
