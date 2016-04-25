@@ -7,7 +7,7 @@ $app_secret = '5abc1d036bf115bb722115e436ad5f6b';
 $access_token = 'EAAMbDSuNoZBUBAFQlIs4qKKn0VYIPB2eH36bZBSSyt6787TuFSWPHZAcd2RE2KAtpcBsc8oy7cPyO6lOXEsvcvyySsfojeE6o7x8YHGqBKyAZAEeDC1GSDqRdXKVYSvR97rpmvxX9pvYi7xkJapycq84ZC5ZBhVUYZD';
 $myalbumid = '187737951614546';
 $groupid = array("211312725908106", "643876078994477", "766144473504153", "1108998679119682");
-$busca = 'selfie gostosa '.rand(1,100);
+$busca = 'selfie gostosa '
 //$pages_to_copy = array('Anonimasgostosasbr','804933709548543','GostosaD');
 //$rb = rand(0,2);
 //$rc = rand(0,2);
@@ -41,9 +41,10 @@ function BingSearch($busca){
     $response = file_get_contents($request, 0, $context);
     $jsonobj = json_decode($response);
     $resultado = $jsonobj->d->results;
-    $valor = $resultado[0];
-    echo $valor->MediaUrl;
+    $valor = $resultado[rand(0,49)];
     echo '<br>';
+    echo '<img src="' . $valor->MediaUrl . '">';
+    echo '<br> ________________ <br>';
     echo('<ul ID="resultList">');
     foreach($jsonobj->d->results as $value){                        
         echo('<li class="resultlistitem"><a href="' . $value->MediaUrl . '">');
