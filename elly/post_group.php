@@ -38,7 +38,7 @@ foreach ($graphNode as $pagina) {
       $tempo = time();
       $diffunix = $tempo - $created_time;
       echo '<td> diff tempo:' . $diffunix . '</td>';
-      if($diffunix < (3600 * 24 * 2)){
+      if($diffunix < (3600 * 24 * 1)){
         PostCloneUser($fb, $myalbumid, $groupid, $access_token, $value['message'], $value['link'], $value['full_picture']);
       }else{
         echo '<td></td>';
