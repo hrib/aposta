@@ -8,7 +8,7 @@ $access_token = 'EAAMbDSuNoZBUBAFQlIs4qKKn0VYIPB2eH36bZBSSyt6787TuFSWPHZAcd2RE2K
 $myalbumid = '187737951614546';
 $groupid = array("593041760770148", "1018838564793936", "1554752111502484", "651723208219632", "1001696903226668", "1001696903226668", "893274700766015", "1108998679119680", "788748517902557", "643876078994477", "558901490944570", "1432890503667720", "670464929730655", "43864040786", "1574502482764760", "988382241197693",  "1667856460096410", "766144473504153");
 //$busca_array = array('selfie gostosa','selfie girls underboobs','Large Underboob Selfies','Wet Underboob','No Bra Selfie','Cougar Selfies','Slutty Selfies','Dirty Selfies iPhone','Selfie Hot But','selfie lingerie','Bikini Selfie','Hot Selfies');
-$busca_array = array('asian selfie girls','selfie girls underboobs asian','elly tran selfie','anri sugihara hot','asian girl hot selfie','No Bra asian Selfie','Elly Tran Ha Instagram');
+$busca_array = array('asian selfie girls','selfie girls underboobs asian','elly tran selfie','elly tran lingerie','anri sugihara hot','anri sugihara lingerie','asian girl hot selfie','No Bra asian Selfie','Elly Tran Ha Instagram');
 
 $busca = $busca_array[rand(0, sizeof($busca_array)-1)];
 //$pages_to_copy = array('Anonimasgostosasbr','804933709548543','GostosaD');
