@@ -40,6 +40,10 @@ function BingSearch($busca){
     echo($request);
     $response = file_get_contents($request, 0, $context);
     $jsonobj = json_decode($response);
+    $resultado = $jsonobj->d->results;
+    $valor = $resultado[0];
+    echo $valor->MediaUrl;
+    echo '<br>';
     echo('<ul ID="resultList">');
     foreach($jsonobj->d->results as $value){                        
         echo('<li class="resultlistitem"><a href="' . $value->MediaUrl . '">');
