@@ -8,7 +8,7 @@
 	 */
 	class BingSearch{
 		
-		protected $apiKey = '4xWgh8**************************eg5GYAAV0=';
+		protected $apiKey = '4bsI4zHy6e5Tr1IcXdYobAQ4gCujDVZ2fi0nXO7sdRk';
 		protected $apiRoot = 'https://api.datamarket.azure.com/Bing/Search/v1/';
 		
 		/*
