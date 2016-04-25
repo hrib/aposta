@@ -11,17 +11,14 @@ session_start();
  
  
 	ini_set('display_errors','1');
-	require('BingSearch.php');
+	//require('BingSearch.php');
 	
 	//register for key on windows azure
 	$apiKey = '4bsI4zHy6e5Tr1IcXdYobAQ4gCujDVZ2fi0nXO7sdRk';
+	$apiRoot = 'https://api.datamarket.azure.com/Bing/Search/v1/';
 	
 	//$bing = new BingSearch($apiKey);
 	
-	# Example 1: simple image search
-	echo '<pre>';
-	$r = $bing->querySpellingSuggestions('testse');
-	var_dump($r);
  
 	
 	# Example 2: advanced image search
