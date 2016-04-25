@@ -16,7 +16,7 @@ session_start();
 	//register for key on windows azure
 	$apiKey = '4bsI4zHy6e5Tr1IcXdYobAQ4gCujDVZ2fi0nXO7sdRk';
 	
-	$bing = new BingSearch($apiKey);
+	//$bing = new BingSearch($apiKey);
 	
 	# Example 1: simple image search
 	echo '<pre>';
@@ -38,6 +38,48 @@ session_start();
 		'Options'=>"'EnableHighlighting'",//string
 	));
 	var_dump($r);
+
+
+	public function queryImage($query){
+		return $this->query('Image',$query);
+	}
+
+
+
+	public function query($type,$query){
+		if(!is_array($query)) $query = array('Query'=>"'{$query}'");
+		try{
+			print_r(self::getJSON("{$this->apiRoot}{$type}",$query));
+			exit;
+			return self::getJSON("{$this->apiRoot}{$type}",$query);
+		}catch(Exception $e){
+			die("<pre>{$e}</pre>");
+		}
+	}
+	
+	/*
+	 * get json via curl with basic auth
+	 * @param string $url
+	 * @param array $data
+	 * @return object
+	 * @throws exception on non-json response (api error)
+	 */
+	protected function getJSON($url,$data){
+		if(!is_array($data)) throw new Exception("Query Data Not Valid. Type Array Required");
+		$data['$format'] = 'json';
+		$url .= '?' . http_build_query($data);
+		
+		$ch = curl_init($url);
+	
+		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+	        curl_setopt($ch, CURLOPT_USERPWD,  $this->apiKey . ":" . $this->apiKey);
+	        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+	        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	        $r = curl_exec($ch);
+	        $json = json_decode($r);
+	        if($json==null) throw new Exception("Bad Response: {$r}\n\n{$url}");
+	        return $json;
+	}
 
 
 
