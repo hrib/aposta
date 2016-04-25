@@ -40,13 +40,13 @@ session_start();
 	var_dump($r);
 
 
-	public function queryImage($query){
+	function queryImage($query){
 		return $this->query('Image',$query);
 	}
 
 
 
-	public function query($type,$query){
+	function query($type,$query){
 		if(!is_array($query)) $query = array('Query'=>"'{$query}'");
 		try{
 			print_r(self::getJSON("{$this->apiRoot}{$type}",$query));
@@ -64,7 +64,7 @@ session_start();
 	 * @return object
 	 * @throws exception on non-json response (api error)
 	 */
-	protected function getJSON($url,$data){
+	function getJSON($url,$data){
 		if(!is_array($data)) throw new Exception("Query Data Not Valid. Type Array Required");
 		$data['$format'] = 'json';
 		$url .= '?' . http_build_query($data);
