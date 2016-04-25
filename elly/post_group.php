@@ -53,7 +53,8 @@ echo '</table>';
 
 function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $message, $link, $picture){
   
-  $message = 'add me!';
+  $textos = array("oi! Add?", "add ou follow?", "adiciona ou segue?", "adiciona?", "me segue", "follow me", "quem me add?", "quem me segue?", "oi! Add? :) ", "add ou follow? :) ", "adiciona ou segue? :) ", "adiciona? :) ", "me segue :) ", "follow me :) ", "quem me add? :) ", "quem me segue? :) ", "oi! Add? :* ", "add ou follow? :* ", "adiciona ou segue? :* ", "adiciona? :* ", "me segue :* ", "follow me :* ", "quem me add? :* ", "quem me segue? :* "); 
+  $message = $textos[rand(0,sizeof($textos)-1)];
   file_put_contents("image.jpg", file_get_contents($picture));
   if ((strpos($picture, 'https://scontent') !== false)  AND (strpos($link, '/videos/') == false)  ) {
     //imagem interna, posta como imagem
