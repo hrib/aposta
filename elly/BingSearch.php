@@ -1,3 +1,4 @@
+<?php
 	/*
 	 * Simple PHP 5 cURL Wrapper for the Bing Search API via Windows Azure Marketplace
 	 * @author Daniel Boorn info@rapiddigitalllc.com
@@ -117,3 +118,4 @@
 		
 		
 	}
+?>
