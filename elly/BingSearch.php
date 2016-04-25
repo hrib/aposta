@@ -3,7 +3,7 @@ session_start();
 $url = 'https://api.datamarket.azure.com/Bing/Search/';
 $accountkey = '4bsI4zHy6e5Tr1IcXdYobAQ4gCujDVZ2fi0nXO7sdRk';
 $searchUrl = $url.'Image?$format=json&Query=';
-$queryItem = 'flamengo';
+$queryItem = 'selfie gostosa';
 $context = stream_context_create(array(
     'http' => array(
     'request_fulluri' => true,
