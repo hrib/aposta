@@ -14,7 +14,7 @@ session_start();
 	require('BingSearch.php');
 	
 	//register for key on windows azure
-	$apiKey = '4xWghqIH8s****************************izeg5GYAAV0=';
+	$apiKey = '4bsI4zHy6e5Tr1IcXdYobAQ4gCujDVZ2fi0nXO7sdRk';
 	
 	$bing = new BingSearch($apiKey);
 	
