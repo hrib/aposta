@@ -16,7 +16,7 @@ $response = file_get_contents($request, 0, $context);
 $jsonobj = json_decode($response);
 echo('<ul ID="resultList">');
 foreach($jsonobj->d->results as $value){                        
-    echo('<li class="resultlistitem"><a href="' . $value->MediaURL . '">');
+    echo('<li class="resultlistitem"><a href="' . $value->MediaUrl . '">');
     echo('<img src="' . $value->Thumbnail->MediaUrl. '"></li>');
 }
 echo("</ul>");
