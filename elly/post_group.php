@@ -61,7 +61,6 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $message, $link
     echo '<td>Imagem interna</td>';
     $target = '/' . $myalbumid . '/photos';
     $linkData = [
-      'privacy' => 'EVERYONE', //No settings do usuario >> app >> mudar pra public.
       'source' => $fb->fileToUpload('image.jpg'),
       'message' => $message,
     ];
@@ -70,7 +69,6 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $message, $link
     echo '<td>Link externo/nada</td>';
     $target = '/me/feed';
     $linkData = [
-      'privacy' => 'EVERYONE',
       'link' => $link,
       'message' => $message,
     ];
