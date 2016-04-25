@@ -21,7 +21,7 @@ $fb = new Facebook\Facebook([
 echo '<table border="1" style="font-family:arial; font-size:7px;">';
 echo '<tr>';
 $bingurl = BingSearch($busca);
-PostCloneUser($fb, $myalbumid, $groupid, $access_token, $bingurl);
+//PostCloneUser($fb, $myalbumid, $groupid, $access_token, $bingurl);
 echo '</tr>';
 echo '</table>';
 
