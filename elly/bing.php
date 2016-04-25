@@ -49,9 +49,9 @@ session_start();
 	function query($type,$query){
 		if(!is_array($query)) $query = array('Query'=>"'{$query}'");
 		try{
-			print_r(self::getJSON("{$this->apiRoot}{$type}",$query));
+			print_r(getJSON("{$this->apiRoot}{$type}",$query));
 			exit;
-			return self::getJSON("{$this->apiRoot}{$type}",$query);
+			return getJSON("{$this->apiRoot}{$type}",$query);
 		}catch(Exception $e){
 			die("<pre>{$e}</pre>");
 		}
