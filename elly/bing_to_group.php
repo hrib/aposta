@@ -60,7 +60,7 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $bingurl){
   //copy($bingurl, 'image.jpg');
   $target = '/' . $myalbumid . '/photos';
   $linkData = [
-    'source' => $fb->fileToUpload(urlencode($bingurl)),
+    'source' => $fb->fileToUpload($bingurl),
     'message' => $message,
   ];
 
