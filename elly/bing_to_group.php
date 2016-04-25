@@ -7,7 +7,9 @@ $app_secret = '5abc1d036bf115bb722115e436ad5f6b';
 $access_token = 'EAAMbDSuNoZBUBAFQlIs4qKKn0VYIPB2eH36bZBSSyt6787TuFSWPHZAcd2RE2KAtpcBsc8oy7cPyO6lOXEsvcvyySsfojeE6o7x8YHGqBKyAZAEeDC1GSDqRdXKVYSvR97rpmvxX9pvYi7xkJapycq84ZC5ZBhVUYZD';
 $myalbumid = '187737951614546';
 $groupid = array("1108998679119680", "788748517902557", "httws", "643876078994477", "558901490944570", "1432890503667720", "670464929730655", "Arshad.Anmol2", "43864040786", "1574502482764760", "988382241197693", "roomslondon", "clubeventsinlondon", "londonsocialgroups", "partyaupairs", "1667856460096410", "FunkiyGirls", "technotechousedeephouseminimal", "1635232316748140", "766144473504153");
-$busca_array = array('selfie gostosa','selfie girls underboobs','Large Underboob Selfies','Wet Underboob','No Bra Selfie','Cougar Selfies','Slutty Selfies','Dirty Selfies iPhone','Selfie Hot But','selfie lingerie','Bikini Selfie','Hot Selfies');
+//$busca_array = array('selfie gostosa','selfie girls underboobs','Large Underboob Selfies','Wet Underboob','No Bra Selfie','Cougar Selfies','Slutty Selfies','Dirty Selfies iPhone','Selfie Hot But','selfie lingerie','Bikini Selfie','Hot Selfies');
+busca_array = array('asian selfie girls','selfie girls underboobs asian','elly tran selfie','anri sugihara hot','asian girl hot selfie','No Bra asian Selfie','Elly Tran Ha Instagram');
+
 $busca = $busca_array[rand(0, sizeof($busca_array)-1)];
 //$pages_to_copy = array('Anonimasgostosasbr','804933709548543','GostosaD');
 //$rb = rand(0,2);
@@ -62,9 +64,9 @@ function BingSearch($busca){
 
 function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $bingurl){
   
-  $textos = array("oi! Add?", "add ou follow?", "adiciona ou segue?", "adiciona?", "me segue", "follow me", "quem me add?", "quem me segue?", "oi! Add? :) ", "add ou follow? :) ", "adiciona ou segue? :) ", "adiciona? :) ", "me segue :) ", "follow me :) ", "quem me add? :) ", "quem me segue? :) ", "oi! Add? :* ", "add ou follow? :* ", "adiciona ou segue? :* ", "adiciona? :* ", "me segue :* ", "follow me :* ", "quem me add? :* ", "quem me segue? :* "); 
+  $textos = array("pegaria? :*","pega ou passa? :*","o que acharam? :*","to sem ideia pra foto... ajuda ai.. :*","oq vcs estao fazendo agora hein? :*","essa ficou show! :*","que nota vc da? :*","qual seu signo? :*","De 1 a 10, oq acha? :*","entediada aqui.. alguem online? :*","vamos conversar? comenta seu whatsapp ai! :*","deixa seu whatsapp no comentario!","oi! Add?", "add ou follow?", "adiciona ou segue?", "adiciona?", "me segue", "follow me", "quem me add?", "quem me segue?", "oi! Add? :) ", "add ou follow? :) ", "adiciona ou segue? :) ", "adiciona? :) ", "me segue :) ", "follow me :) ", "quem me add? :) ", "quem me segue? :) ", "oi! Add? :* ", "add ou follow? :* ", "adiciona ou segue? :* ", "adiciona? :* ", "me segue :* ", "follow me :* ", "quem me add? :* ", "quem me segue? :* "); 
   $message = $textos[rand(0,sizeof($textos)-1)];
-
+  $message_wall = = $textos[rand(0,sizeof($textos)-1)];
   $opts = array('http' => array('header' => "User-Agent:MyAgent/1.0\r\n"));
   $context = stream_context_create($opts);
   $header = file_get_contents($bingurl, FALSE, $context);
@@ -73,7 +75,7 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $bingurl){
   $target = '/' . $myalbumid . '/photos';
   $linkData = [
     'source' => $fb->fileToUpload('image.jpg'),
-    'message' => $message,
+    'message' => $message_wall,
   ];
 
   echo '<td>' . $bingurl . '</td>';
