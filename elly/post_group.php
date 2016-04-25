@@ -1,6 +1,7 @@
 <?php
 session_start(); 
-require_once '../src/Facebook/autoload.php';
+require_once(dirname(__FILE__)."/src/Facebook/autoload.php");
+//require_once '../src/Facebook/autoload.php';
 
 $app_id = '874168309359589';
 $app_secret = '5abc1d036bf115bb722115e436ad5f6b';
