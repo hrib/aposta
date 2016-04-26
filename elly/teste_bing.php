@@ -54,6 +54,9 @@ function BingSearch($busca){
     foreach($jsonobj->d->results as $value){                        
         echo('<li class="resultlistitem"><a href="' . $value->MediaUrl . '">');
         echo('<img src="' . $value->Thumbnail->MediaUrl. '"></li>');
+        echo '<br>';
+        echo($value->Title);
+        echo '<br>';
     }
     echo("</ul>");
     return $value->MediaUrl;
