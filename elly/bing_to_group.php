@@ -10,7 +10,7 @@ $groupid = array("593041760770148", "1018838564793936", "1554752111502484", "651
 //$busca_array = array('selfie gostosa','selfie girls underboobs','Large Underboob Selfies','Wet Underboob','No Bra Selfie','Cougar Selfies','Slutty Selfies','Dirty Selfies iPhone','Selfie Hot But','selfie lingerie','Bikini Selfie','Hot Selfies');
 $busca_array = array('asian selfie girls','selfie girls underboobs asian','elly tran selfie','elly tran lingerie','anri sugihara hot','anri sugihara lingerie','asian girl hot selfie','No Bra asian Selfie','Elly Tran Ha Instagram');
 
-$busca = $busca_array[rand(0, sizeof($busca_array)-1)];
+$busca = $busca_array[mt_rand(0, sizeof($busca_array)-1)];
 //$pages_to_copy = array('Anonimasgostosasbr','804933709548543','GostosaD');
 //$rb = rand(0,2);
 //$rc = rand(0,2);
@@ -45,7 +45,7 @@ function BingSearch($busca){
     $jsonobj = json_decode($response);
 
     $resultado = $jsonobj->d->results;
-    $valor = $resultado[rand(0,49)];
+    $valor = $resultado[mt_rand(0,49)];
     echo '<br>';
     echo '<img src="' . $valor->MediaUrl . '">';
     echo '<br> ________________ <br>';
@@ -65,8 +65,8 @@ function BingSearch($busca){
 function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $bingurl){
   
   $textos = array("pegaria? :*","pega ou passa? :*","o que acharam? :*","to sem ideia pra foto... ajuda ai.. :*","oq vcs estao fazendo agora hein? :*","essa ficou show! :*","que nota vc da? :*","qual seu signo? :*","De 1 a 10, oq acha? :*","entediada aqui.. alguem online? :*","vamos conversar? comenta seu whatsapp ai! :*","deixa seu whatsapp no comentario!","oi! Add?", "add ou follow?", "adiciona ou segue?", "adiciona?", "me segue", "follow me", "quem me add?", "quem me segue?", "oi! Add? :) ", "add ou follow? :) ", "adiciona ou segue? :) ", "adiciona? :) ", "me segue :) ", "follow me :) ", "quem me add? :) ", "quem me segue? :) ", "oi! Add? :* ", "add ou follow? :* ", "adiciona ou segue? :* ", "adiciona? :* ", "me segue :* ", "follow me :* ", "quem me add? :* ", "quem me segue? :* "); 
-  $message = $textos[rand(0,sizeof($textos)-1)];
-  $message_wall = $textos[rand(0,sizeof($textos)-1)];
+  $message = $textos[mt_rand(0,sizeof($textos)-1)];
+  $message_wall = $textos[mt_rand(0,sizeof($textos)-1)];
   $opts = array('http' => array('header' => "User-Agent:MyAgent/1.0\r\n"));
   $context = stream_context_create($opts);
   $header = file_get_contents($bingurl, FALSE, $context);
@@ -97,7 +97,7 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $bingurl){
   //echo $link_post . '<br>';
   
   $up = sizeof($groupid) - 1;
-  $ra = rand(0,$up);
+  $ra = mt_rand(0,$up);
   $group_rand = $groupid[$ra];
   echo '<td>'. $group_rand .'</td>';
   
