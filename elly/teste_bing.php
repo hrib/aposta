@@ -26,14 +26,14 @@ echo '</tr>';
 echo '</table>';
 
 function BingSearch($busca){
-    $url = 'https://api.datamarket.azure.com/Bing/Search/';
+    $url1 = 'https://api.datamarket.azure.com/Bing/Search/';
+    $url = 'https://bingapis.azure-api.net/api/v5/images/search/';
     $accountkey = '4bsI4zHy6e5Tr1IcXdYobAQ4gCujDVZ2fi0nXO7sdRk';
     $searchUrl = $url.'Image?$format=json&Adult=%27Moderate%27&Query=';
     $queryItem = $busca;
     $context = stream_context_create(array(
         'http' => array(
         'request_fulluri' => true,
-        'insightsToken'  => true,
         'header'  => "Authorization: Basic " . base64_encode($accountkey . ":" . $accountkey)
         )
     ));
