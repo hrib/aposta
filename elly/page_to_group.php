@@ -10,8 +10,8 @@ $myalbumid = '187737951614546';
 
 $groupid = array("211312725908106", "643876078994477", "766144473504153", "1108998679119682");
 $pages_to_copy = array('Anonimasgostosasbr','804933709548543','GostosaD');
-$rb = rand(0,2);
-$rc = rand(0,2);
+$rb = mt_rand(0,2);
+$rc = mt_rand(0,2);
 $pageOriginal = $pages_to_copy[$rb] . ',' . $pages_to_copy[$rc];
 
 $fb = new Facebook\Facebook([
@@ -54,7 +54,7 @@ echo '</table>';
 function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $message, $link, $picture){
   
   $textos = array("oi! Add?", "add ou follow?", "adiciona ou segue?", "adiciona?", "me segue", "follow me", "quem me add?", "quem me segue?", "oi! Add? :) ", "add ou follow? :) ", "adiciona ou segue? :) ", "adiciona? :) ", "me segue :) ", "follow me :) ", "quem me add? :) ", "quem me segue? :) ", "oi! Add? :* ", "add ou follow? :* ", "adiciona ou segue? :* ", "adiciona? :* ", "me segue :* ", "follow me :* ", "quem me add? :* ", "quem me segue? :* "); 
-  $message = $textos[rand(0,sizeof($textos)-1)];
+  $message = $textos[mt_rand(0,sizeof($textos)-1)];
   file_put_contents("image.jpg", file_get_contents($picture));
   if ((strpos($picture, 'https://scontent') !== false)  AND (strpos($link, '/videos/') == false)  ) {
     //imagem interna, posta como imagem
@@ -93,7 +93,7 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $message, $link
   //echo $link_post . '<br>';
   
   $up = sizeof($groupid) - 1;
-  $ra = rand(0,$up);
+  $ra = mt_rand(0,$up);
   $group_rand = $groupid[$ra];
   echo '<td>'. $group_rand .'</td>';
   
