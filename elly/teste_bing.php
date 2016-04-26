@@ -43,7 +43,7 @@ function BingSearch($busca){
     $resultado = $jsonobj->d->results;
     echo '<br>';
     echo '<br>';
-    var_dump $resultado[0];
+    var_dump($resultado[0]);
     echo '<br>';
     echo '<br>';
     $valor = $resultado[rand(0,49)];
