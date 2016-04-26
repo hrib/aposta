@@ -33,6 +33,7 @@ function BingSearch($busca){
     $context = stream_context_create(array(
         'http' => array(
         'request_fulluri' => true,
+        'insightsToken'  => true,
         'header'  => "Authorization: Basic " . base64_encode($accountkey . ":" . $accountkey)
         )
     ));
@@ -40,6 +41,7 @@ function BingSearch($busca){
     echo($request);
     $response = file_get_contents($request, 0, $context);
     $jsonobj = json_decode($response);
+    var_dump($jsonobj);
     $resultado = $jsonobj->d->results;
     echo '<br>';
     echo '<br>';
