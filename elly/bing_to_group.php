@@ -70,11 +70,12 @@ function PostCloneUser($fb, $myalbumid, $groupid, $access_token, $bingurl){
   $opts = array('http' => array('header' => "User-Agent:MyAgent/1.0\r\n"));
   $context = stream_context_create($opts);
   $header = file_get_contents($bingurl, FALSE, $context);
-  file_put_contents("image.jpg", $header);
+  $image_filename = 'image' . $myalbumid . '.jpg';
+  file_put_contents($image_filename, $header);
   
   $target = '/' . $myalbumid . '/photos';
   $linkData = [
-    'source' => $fb->fileToUpload('image.jpg'),
+    'source' => $fb->fileToUpload($image_filename),
     'message' => $message_wall,
   ];
 
