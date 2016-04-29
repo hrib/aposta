@@ -34,12 +34,14 @@ $fb = new Facebook\Facebook([
 ]);
 $response = $fb->get('/?ids='. $pageOriginal .'&fields=posts{source,full_picture,message}');
 $graphNode = $response->getGraphNode();
-echo count($pagina['posts']);
-echo '<br>';
-echo sizeof($pagina['posts']);
+
 
 echo '<table border="1" style="font-family:arial; font-size:7px;">';
 foreach ($graphNode as $pagina) {
+echo count($pagina['posts']);
+echo '<br>';
+echo sizeof($pagina['posts']);
+echo '<br>';
     foreach ($pagina['posts'] as $key => $value) {
       echo '<tr>';
       echo '<td>' . $key . ':' . $pagina['name'] . '</td>';
