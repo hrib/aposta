@@ -79,10 +79,12 @@ foreach ($graphNode as $pagina) {
         $data = [
           'title' => 'My Foo Video',
           'description' => 'This video is full of foo and bar action.',
-          'source' => $fb->videoToUpload('video.avi'),
+          'source' => $fb->videoToUpload('video.mp4'),
         ];
         
-        $target = '/' . $mypageid . '/feed';
+        
+        $target = '/' . $myalbumid . '/photos';
+        //$target = '/' . $mypageid . '/feed';
         
         try {
           $response = $fb->post($target, $data, $page_access_token);
