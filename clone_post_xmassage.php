@@ -34,7 +34,7 @@ $fb = new Facebook\Facebook([
 ]);
 $response = $fb->get('/?ids='. $pageOriginal .'&fields=posts{source,full_picture,message}');
 $graphNode = $response->getGraphNode();
-echo $pagina['posts'].count();
+echo count($pagina['posts']);
 echo '<br>';
 echo sizeof($pagina['posts']);
 
