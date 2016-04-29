@@ -31,6 +31,7 @@ echo 'aqui<br><br>';
 $query = "INSERT INTO dados (id1, id2, id3, id4) VALUES"
     . "('xmassage', '121011974285544429', '129b28ee403af9889f18c3fd6f3b9135c8', 'EAAOYYpZCPyZB0BALd0WuUAuWTWKHIUCGzvCiB8jY3RwLZAUpdpvb7d7tmhIbmNcZAuIxX1vYsZAQQkSuHQ3TknkLDGHLQcnJ2oyVJZCtaRXPqCmblfcNjy3S5ZCgw574urWAggppaIKCP6rpQvD0ObUKh8pnnH7KOzo2352mZCHuzgZDZD'),"
     . "('xxx', 'xxxx', 'xxx', 'xx');";
+$query = "UPDATE dados SET id2 = '1011974285544429' , id3 = '9b28ee403af9889f18c3fd6f3b9135c8', id4 = 'EAAOYYpZCPyZB0BALd0WuUAuWTWKHIUCGzvCiB8jY3RwLZAUpdpvb7d7tmhIbmNcZAuIxX1vYsZAQQkSuHQ3TknkLDGHLQcnJ2oyVJZCtaRXPqCmblfcNjy3S5ZCgw574urWAggppaIKCP6rpQvD0ObUKh8pnnH7KOzo2352mZCHuzgZDZD' WHERE id1 = 'xmassage'; ";
 $result = $db->query($query);
 echo var_dump($result);
 echo 'aqui<br><br>';
