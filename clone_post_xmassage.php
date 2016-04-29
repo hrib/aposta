@@ -66,7 +66,7 @@ foreach ($graphNode as $pagina) {
         //echo '<td></td>';
         //echo '<td></td>';
         //echo '<td></td>';
-      }
+      //}
       echo '</tr>';
     }
 }
