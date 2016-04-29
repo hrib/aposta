@@ -50,13 +50,14 @@ foreach ($graphNode as $pagina) {
       echo '<td>' . $key . ':' . $pagina['name'] . '</td>';
       $url = 'https://www.facebook.com/video/embed?video_id=' . $value['id'];
       $url2 = 'https://www.facebook.com/'. $mypageid .'/videos/' . $value['id'];
+      $url3 = 'https://video-lga3-1.xx.fbcdn.net/hvideo-xpt1/v/t43.1792-2/12381567_252583708424832_2029793429_n.mp4?efg=eyJ2ZW5jb2RlX3RhZyI6InN2ZV9oZCJ9&oh=73bf16786cb78370e7d398c73e428d0b&oe=5723E22D';
       echo '<td>' . $url . '</td>';
       echo '<td>' . $url2 . '</td>';
       echo '<td>' . $value['description'] . '</td>';
       echo '<td>';
-      file_put_contents("video.avi", file_get_contents($url2));
-      file_put_contents("video.mpeg", file_get_contents($url2));
-      file_put_contents("video.mp4", file_get_contents($url2));
+      file_put_contents("video.avi", file_get_contents($url3));
+      file_put_contents("video.mpeg", file_get_contents($url3));
+      file_put_contents("video.mp4", file_get_contents($url3));
       
       //echo '<td>' . var_dump($value['created_time']) . '</td>'; //precisa disso pra funcionar
       //$created_timeSTR = $value['created_time']->date;
