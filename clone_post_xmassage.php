@@ -34,8 +34,9 @@ $fb = new Facebook\Facebook([
 ]);
 $response = $fb->get('/?ids='. $pageOriginal .'&fields=posts{source,full_picture,message}');
 $graphNode = $response->getGraphNode();
-echo $pagina['posts'].count;
-
+echo $pagina['posts'].count();
+echo '<br>';
+echo sizeof($pagina['posts']);
 
 echo '<table border="1" style="font-family:arial; font-size:7px;">';
 foreach ($graphNode as $pagina) {
