@@ -38,18 +38,17 @@ $graphNode = $response->getGraphNode();
 
 echo '<table border="1" style="font-family:arial; font-size:7px;">';
 foreach ($graphNode as $pagina) {
-echo count($pagina['posts']);
-echo '<br>';
-echo sizeof($pagina['posts']);
-echo '<br>';
-    foreach ($pagina['posts'] as $key => $value) {
+    $n_posts =  sizeof($pagina['posts']);
+    $sorteio = mt_rand(1, $n_posts - 1);
+    //foreach ($pagina['posts'] as $key => $value) {
       echo '<tr>';
-      echo '<td>' . $key . ':' . $pagina['name'] . '</td>';
-      echo '<td>' . $value['source'] . '</td>';
-      echo '<td>' . $value['full_picture'] . '</td>';
-      echo '<td>' . $value['message'] . '</td>';
+      echo '<td>' . $sorteio . '</td>';
+      echo '<td>' . $pagina['posts'][$sorteio]['source'] . '</td>';
+      echo '<td>' . $pagina['posts'][$sorteio]['full_picture'] . '</td>';
+      echo '<td>' . $pagina['posts'][$sorteio]['message'] . '</td>';
       echo '<td>';
-      file_put_contents("video.mp4", file_get_contents($value['source']));
+      file_put_contents("video".$mypageid.".mp4", file_get_contents($pagina['posts'][$sorteio]['source']));
+      file_put_contents("image".$mypageid.".jpg", file_get_contents($pagina['posts'][$sorteio]['full_picture']));
       
       //echo '<td>' . var_dump($value['created_time']) . '</td>'; //precisa disso pra funcionar
       //$created_timeSTR = $value['created_time']->date;
