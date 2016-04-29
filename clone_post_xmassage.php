@@ -2,10 +2,10 @@
 session_start();
 require_once 'src/Facebook/autoload.php';
 
-$mypageid = '798157940318724';
-$myalbumid = '801145170020001';
+$mypageid = '1325563600793849';
+$myalbumid = '1330244656992410';
 //$pageOriginal = 'mblivre';
-$pageOriginal = 'mblivre,vempraruabrasil.org,140140766087925,endireitabrasil';
+$pageOriginal = $mypageid;
 
 
 $dbopts = parse_url(getenv('DATABASE_URL'));
@@ -25,6 +25,7 @@ $result->closeCursor();
 $app_id = $row["id2"];
 $app_secret = $row["id3"];
 $page_access_token = $row["id4"];
+$page_access_token = 'EAAOYYpZCPyZB0BAPCjWYBQuT4UQvbZBJAJ4pOkLNbr1smSUhWnZCRtq5LF7dTTGnwOMFwqXuNUEv4r4RCKxlFPkkxoQ3LHurv1prjWDARjjz4tiFl7QHLTdqwjXiWDaOrTZBlb3XZBiciuaHyHH1KwUPcFXCQruOOyRyXmgH5GwgZDZD';
 
 $fb = new Facebook\Facebook([
   'app_id' => $app_id,
@@ -34,7 +35,7 @@ $fb = new Facebook\Facebook([
 ]);
 //&date_format=U
 //$response = $fb->get('/' . $pageOriginal . '?fields=posts{message,link,full_picture,created_time}');
-$response = $fb->get('/?ids='. $pageOriginal .'&fields=name,posts.limit(5){message,link,full_picture,created_time}');
+$response = $fb->get('/?ids='. $pageOriginal .'&fields=videos');
 $graphNode = $response->getGraphNode();
 
 //echo var_dump($response);
@@ -44,26 +45,25 @@ $graphNode = $response->getGraphNode();
 echo '<table border="1" style="font-family:arial; font-size:7px;">';
 foreach ($graphNode as $pagina) {
     //foreach ($graphNode['posts'] as $key => $value) {
-    foreach ($pagina['posts'] as $key => $value) {
+    foreach ($pagina['videos'] as $key => $value) {
       echo '<tr>';
       echo '<td>' . $key . ':' . $pagina['name'] . '</td>';
-      echo '<td>' . $value['message'] . '</td>';
-      echo '<td>' . $value['link'] . '</td>';
-      echo '<td>' . $value['full_picture'] . '</td>';
+      echo '<td>' . $value['id'] . '</td>';
+      echo '<td>' . $value['description'] . '</td>';
       echo '<td>';
-      echo '<td>' . var_dump($value['created_time']) . '</td>'; //precisa disso pra funcionar
-      $created_timeSTR = $value['created_time']->date;
-      $created_time = strtotime($created_timeSTR);  //unix
-      echo '<td>' . $key . ':' . $created_timeSTR . '</td>';
+      //echo '<td>' . var_dump($value['created_time']) . '</td>'; //precisa disso pra funcionar
+      //$created_timeSTR = $value['created_time']->date;
+      //$created_time = strtotime($created_timeSTR);  //unix
+      //echo '<td>' . $key . ':' . $created_timeSTR . '</td>';
       //echo '<br>time' . $key . ':' . $created_time . '<br>';
-      $tempo = time();
-      $diffunix = $tempo - $created_time;
-      echo '<td> diff tempo:' . $diffunix . '</td>';
-      if($diffunix < 3600){
-        PostClone($fb, $myalbumid, $mypageid, $page_access_token, $value['message'], $value['link'], $value['full_picture']);
-      }else{
-        echo '<td></td>';
-        echo '<td></td>';
+      //$tempo = time();
+      //$diffunix = $tempo - $created_time;
+      //echo '<td> diff tempo:' . $diffunix . '</td>';
+      //if($diffunix < 3600){
+        //PostClone($fb, $myalbumid, $mypageid, $page_access_token, $value['message'], $value['link'], $value['full_picture']);
+      //}else{
+        //echo '<td></td>';
+        //echo '<td></td>';
         //echo '<td></td>';
         //echo '<td></td>';
       }
