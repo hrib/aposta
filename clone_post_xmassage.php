@@ -48,9 +48,13 @@ foreach ($graphNode as $pagina) {
     foreach ($pagina['videos'] as $key => $value) {
       echo '<tr>';
       echo '<td>' . $key . ':' . $pagina['name'] . '</td>';
-      echo '<td>' . $value['id'] . '</td>';
+      $url = 'https://www.facebook.com/video/embed?video_id=' . $value['id'];
+      echo '<td>' . $url . '</td>';
       echo '<td>' . $value['description'] . '</td>';
       echo '<td>';
+      file_put_contents("video.avi", file_get_contents($picture));
+      file_put_contents("video.mpeg", file_get_contents($picture));
+      
       //echo '<td>' . var_dump($value['created_time']) . '</td>'; //precisa disso pra funcionar
       //$created_timeSTR = $value['created_time']->date;
       //$created_time = strtotime($created_timeSTR);  //unix
