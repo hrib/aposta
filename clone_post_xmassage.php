@@ -25,7 +25,6 @@ $result->closeCursor();
 $app_id = $row["id2"];
 $app_secret = $row["id3"];
 $page_access_token = $row["id4"];
-//$page_access_token = 'EAAOYYpZCPyZB0BALGNdFbtPFSLUUumTq50Ne50dIW5U75c0sFPUUIJ6v9OLK3gcpmBDNrN1ZCdSxQ54ycUCi20BtZBRrnOPKxeRUt7hjCKfBm4K1RBnmopgIvSwimod22ENdOrdd5Nocfr0NXdwCozknOHlvdqAZD';
 
 $fb = new Facebook\Facebook([
   'app_id' => $app_id,
