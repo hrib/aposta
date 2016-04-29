@@ -49,12 +49,14 @@ foreach ($graphNode as $pagina) {
       echo '<tr>';
       echo '<td>' . $key . ':' . $pagina['name'] . '</td>';
       $url = 'https://www.facebook.com/video/embed?video_id=' . $value['id'];
+      $url2 = 'https://www.facebook.com/'. $mypageid .'/videos/' . $value['id'];
       echo '<td>' . $url . '</td>';
+      echo '<td>' . $url2 . '</td>';
       echo '<td>' . $value['description'] . '</td>';
       echo '<td>';
-      file_put_contents("video.avi", file_get_contents($url));
-      file_put_contents("video.mpeg", file_get_contents($url));
-      file_put_contents("video.mp4", file_get_contents($url));
+      file_put_contents("video.avi", file_get_contents($url2));
+      file_put_contents("video.mpeg", file_get_contents($url2));
+      file_put_contents("video.mp4", file_get_contents($url2));
       
       //echo '<td>' . var_dump($value['created_time']) . '</td>'; //precisa disso pra funcionar
       //$created_timeSTR = $value['created_time']->date;
@@ -76,7 +78,7 @@ foreach ($graphNode as $pagina) {
         $data = [
           'title' => 'My Foo Video',
           'description' => 'This video is full of foo and bar action.',
-          'source' => $fb->videoToUpload('video.avi'),
+          'source' => $fb->videoToUpload('video.mp4'),
         ];
         
         $target = '/' . $mypageid . '/feed';
