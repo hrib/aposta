@@ -83,8 +83,8 @@ foreach ($graphNode as $pagina) {
         ];
         
         
-        $target = '/' . $myalbumid . '/photos';
-        //$target = '/' . $mypageid . '/feed';
+        //$target = '/' . $myalbumid . '/photos';
+        $target = '/' . $mypageid . '/feed';
         
         try {
           $response = $fb->post($target, $data, $page_access_token);
