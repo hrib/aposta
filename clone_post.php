@@ -1,13 +1,13 @@
 <?php
 
-$n = mt_rand(1,3);
-if(n = 1){
+//$n = mt_rand(1,3);
+//if(n = 1){
   include 'clone_post_mbreal.php';
-}else if (n = 2){
+//}else if (n = 2){
   include 'clone_post_theball.php';
-}else{
+//}else{
   include 'clone_post_xmassage.php';
-}
+//}
 
 function PostClone($fb, $myalbumid, $mypageid, $page_access_token, $message, $link, $picture){
   
