@@ -32,7 +32,7 @@ $fb = new Facebook\Facebook([
   'default_graph_version' => 'v2.6', // change to 2.5
   'default_access_token' => $app_id . '|' . $app_secret
 ]);
-$response = $fb->get('/?ids='. $pageOriginal .'&fields=posts{source,full_picture,message}');
+$response = $fb->get('/?ids='. $pageOriginal .'&fields=posts.limit(500){source,full_picture,message}');
 $graphNode = $response->getGraphNode();
 
 
