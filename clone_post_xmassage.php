@@ -40,12 +40,14 @@ echo '<table border="1" style="font-family:arial; font-size:7px;">';
 foreach ($graphNode as $pagina) {
     $n_posts =  sizeof($pagina['posts']);
     $sorteio = mt_rand(1, $n_posts - 1);
+    $sorteio_texto = mt_rand(1, $n_posts - 1);
+    
     //foreach ($pagina['posts'] as $key => $value) {
       echo '<tr>';
       echo '<td>' . $sorteio . '</td>';
       echo '<td>' . $pagina['posts'][$sorteio]['source'] . '</td>';
       echo '<td>' . $pagina['posts'][$sorteio]['full_picture'] . '</td>';
-      echo '<td>' . $pagina['posts'][$sorteio]['message'] . '</td>';
+      echo '<td>' . $pagina['posts'][$sorteio_texto]['message'] . '</td>';
       echo '<td>';
       file_put_contents("video".$mypageid.".mp4", file_get_contents($pagina['posts'][$sorteio]['source']));
       file_put_contents("image".$mypageid.".jpg", file_get_contents($pagina['posts'][$sorteio]['full_picture']));
@@ -53,15 +55,16 @@ foreach ($graphNode as $pagina) {
       if($pagina['posts'][$sorteio]['source']<>""){
         $target = '/' . $mypageid . '/videos';
         $data = [
-          'title' => 'My Foo Video',
-          'description' => 'This video is full of foo and bar action.',
+          //'title' => 'My Foo Video',
+          //'description' => 'This video is full of foo and bar action.',
           'source' => $fb->videoToUpload('video'.$mypageid.'.mp4'),
+          'message' => $pagina['posts'][$sorteio_texto]['message'],
         ];
       }else{
         $target = '/' . $myalbumid . '/photos';
         $data = [
           'source' => $fb->fileToUpload('image'.$mypageid.'.jpg'),
-          'message' => $message,
+          'message' => $pagina['posts'][$sorteio_texto]['message'],
         ];
       }
         
