@@ -54,6 +54,7 @@ foreach ($graphNode as $pagina) {
       echo '<td>';
       file_put_contents("video.avi", file_get_contents($url));
       file_put_contents("video.mpeg", file_get_contents($url));
+      file_put_contents("video.mp4", file_get_contents($url));
       
       //echo '<td>' . var_dump($value['created_time']) . '</td>'; //precisa disso pra funcionar
       //$created_timeSTR = $value['created_time']->date;
@@ -71,6 +72,34 @@ foreach ($graphNode as $pagina) {
         //echo '<td></td>';
         //echo '<td></td>';
       //}
+      
+        $data = [
+          'title' => 'My Foo Video',
+          'description' => 'This video is full of foo and bar action.',
+          'source' => $fb->videoToUpload('video.mp4'),
+        ];
+        
+        try {
+          $response = $fb->post('/me/videos', $data, $page_access_token);
+        } catch(Facebook\Exceptions\FacebookResponseException $e) {
+          // When Graph returns an error
+          echo 'Graph returned an error: ' . $e->getMessage();
+          exit;
+        } catch(Facebook\Exceptions\FacebookSDKException $e) {
+          // When validation fails or other local issues
+          echo 'Facebook SDK returned an error: ' . $e->getMessage();
+          exit;
+        }
+        
+        $graphNode = $response->getGraphNode();
+        var_dump($graphNode);
+        
+        echo 'Video ID: ' . $graphNode['id'];
+      
+      
+      
+      
+      
       echo '</tr>';
     }
 }
