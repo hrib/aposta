@@ -52,8 +52,8 @@ foreach ($graphNode as $pagina) {
       echo '<td>' . $url . '</td>';
       echo '<td>' . $value['description'] . '</td>';
       echo '<td>';
-      file_put_contents("video.avi", file_get_contents($picture));
-      file_put_contents("video.mpeg", file_get_contents($picture));
+      file_put_contents("video.avi", file_get_contents($url));
+      file_put_contents("video.mpeg", file_get_contents($url));
       
       //echo '<td>' . var_dump($value['created_time']) . '</td>'; //precisa disso pra funcionar
       //$created_timeSTR = $value['created_time']->date;
