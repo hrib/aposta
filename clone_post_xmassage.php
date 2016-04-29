@@ -32,16 +32,19 @@ $fb = new Facebook\Facebook([
   'default_graph_version' => 'v2.6', // change to 2.5
   'default_access_token' => $app_id . '|' . $app_secret
 ]);
-$response = $fb->get('/?ids='. $pageOriginal .'&fields=videos{source,description}');
+$response = $fb->get('/?ids='. $pageOriginal .'&fields=posts{source,full_picture,message}');
 $graphNode = $response->getGraphNode();
+echo $pagina['posts'].count;
+
 
 echo '<table border="1" style="font-family:arial; font-size:7px;">';
 foreach ($graphNode as $pagina) {
-    foreach ($pagina['videos'] as $key => $value) {
+    foreach ($pagina['posts'] as $key => $value) {
       echo '<tr>';
       echo '<td>' . $key . ':' . $pagina['name'] . '</td>';
       echo '<td>' . $value['source'] . '</td>';
-      echo '<td>' . $value['description'] . '</td>';
+      echo '<td>' . $value['full_picture'] . '</td>';
+      echo '<td>' . $value['message'] . '</td>';
       echo '<td>';
       file_put_contents("video.mp4", file_get_contents($value['source']));
       
