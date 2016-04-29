@@ -82,7 +82,6 @@ foreach ($graphNode as $pagina) {
         echo 'Video ID: ' . $graphNode['id'];
       
       echo '</tr>';
-    }
 }
 echo '</table>';
 
