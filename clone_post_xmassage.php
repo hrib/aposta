@@ -76,7 +76,7 @@ foreach ($graphNode as $pagina) {
         $data = [
           'title' => 'My Foo Video',
           'description' => 'This video is full of foo and bar action.',
-          'source' => $fb->videoToUpload('video.mp4'),
+          'source' => $fb->videoToUpload('video.avi'),
         ];
         
         $target = '/' . $mypageid . '/feed';
