@@ -79,8 +79,10 @@ foreach ($graphNode as $pagina) {
           'source' => $fb->videoToUpload('video.mp4'),
         ];
         
+        $target = '/' . $mypageid . '/feed';
+        
         try {
-          $response = $fb->post('/me/videos', $data, $page_access_token);
+          $response = $fb->post($target, $data, $page_access_token);
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
           // When Graph returns an error
           echo 'Graph returned an error: ' . $e->getMessage();
