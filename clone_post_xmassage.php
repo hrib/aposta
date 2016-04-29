@@ -3,7 +3,7 @@ session_start();
 require_once 'src/Facebook/autoload.php';
 
 $mypageid = '1325563600793849';
-//$myalbumid = '1330244656992410';
+$myalbumid = '1330244656992410';
 //$pageOriginal = 'mblivre';
 $pageOriginal = $mypageid;
 
@@ -50,29 +50,20 @@ foreach ($graphNode as $pagina) {
       file_put_contents("video".$mypageid.".mp4", file_get_contents($pagina['posts'][$sorteio]['source']));
       file_put_contents("image".$mypageid.".jpg", file_get_contents($pagina['posts'][$sorteio]['full_picture']));
       
-      //echo '<td>' . var_dump($value['created_time']) . '</td>'; //precisa disso pra funcionar
-      //$created_timeSTR = $value['created_time']->date;
-      //$created_time = strtotime($created_timeSTR);  //unix
-      //echo '<td>' . $key . ':' . $created_timeSTR . '</td>';
-      //echo '<br>time' . $key . ':' . $created_time . '<br>';
-      //$tempo = time();
-      //$diffunix = $tempo - $created_time;
-      //echo '<td> diff tempo:' . $diffunix . '</td>';
-      //if($diffunix < 3600){
-        //PostClone($fb, $myalbumid, $mypageid, $page_access_token, $value['message'], $value['link'], $value['full_picture']);
-      //}else{
-        //echo '<td></td>';
-        //echo '<td></td>';
-        //echo '<td></td>';
-        //echo '<td></td>';
-      //}
-      
+      if($pagina['posts'][$sorteio]['source']<>""){
+        $target = '/' . $mypageid . '/videos';
         $data = [
           'title' => 'My Foo Video',
           'description' => 'This video is full of foo and bar action.',
-          'source' => $fb->videoToUpload('video.mp4'),
+          'source' => $fb->videoToUpload('video'.$mypageid.'.mp4'),
         ];
-        $target = '/' . $mypageid . '/videos';
+      }else{
+        $target = '/' . $myalbumid . '/photos';
+        $data = [
+          'source' => $fb->fileToUpload('image'.$mypageid.'.jpg'),
+          'message' => $message,
+        ];
+      }
         
         try {
           $response = $fb->post($target, $data, $page_access_token);
