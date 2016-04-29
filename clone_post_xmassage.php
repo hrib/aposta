@@ -35,7 +35,7 @@ $fb = new Facebook\Facebook([
 ]);
 //&date_format=U
 //$response = $fb->get('/' . $pageOriginal . '?fields=posts{message,link,full_picture,created_time}');
-$response = $fb->get('/?ids='. $pageOriginal .'&fields=videos{source}');
+$response = $fb->get('/?ids='. $pageOriginal .'&fields=videos{source,description}');
 $graphNode = $response->getGraphNode();
 
 //echo var_dump($response);
