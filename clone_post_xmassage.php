@@ -44,7 +44,7 @@ foreach ($graphNode as $pagina) {
     
     //foreach ($pagina['posts'] as $key => $value) {
       echo '<tr>';
-      echo '<td>' . $sorteio . ':' $sorteio_texto '</td>';
+      echo '<td>' . $sorteio . ':'. $sorteio_texto .'</td>';
       echo '<td>' . $pagina['posts'][$sorteio]['source'] . '</td>';
       echo '<td>' . $pagina['posts'][$sorteio]['full_picture'] . '</td>';
       echo '<td>' . $pagina['posts'][$sorteio_texto]['message'] . '</td>';
