@@ -55,8 +55,8 @@ foreach ($graphNode as $pagina) {
       if($pagina['posts'][$sorteio]['source']<>""){
         $target = '/' . $mypageid . '/videos';
         $data = [
-          //'title' => 'My Foo Video',
-          //'description' => 'This video is full of foo and bar action.',
+          'title' => $pagina['posts'][$sorteio_texto]['message'],
+          'description' => $pagina['posts'][$sorteio_texto]['message'],
           'source' => $fb->videoToUpload('video'.$mypageid.'.mp4'),
           'message' => $pagina['posts'][$sorteio_texto]['message'],
         ];
