@@ -39,8 +39,8 @@ $graphNode = $response->getGraphNode();
 echo '<table border="1" style="font-family:arial; font-size:7px;">';
 foreach ($graphNode as $pagina) {
     $n_posts =  sizeof($pagina['posts']);
-    $sorteio = mt_rand(1, $n_posts - 1);
-    $sorteio_texto = mt_rand(1, $n_posts - 1);
+    $sorteio = mt_rand(round($n_posts/2,0), $n_posts - 1);
+    $sorteio_texto = mt_rand(round($n_posts/2,0), $n_posts - 1);
     
     //foreach ($pagina['posts'] as $key => $value) {
       echo '<tr>';
