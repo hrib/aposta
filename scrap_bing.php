@@ -1,6 +1,6 @@
 <?php
 include 'simple_html_dom.php';
-$html = file_get_html('http://www.bing.com/images/search?q=interior+design');
+$html = file_get_html('http://www.bing.com/images/search?q=interior+design&view=detailv2');
 
 //foreach($html->find('img') as $element)
 //       echo $element->src . '<br>';
